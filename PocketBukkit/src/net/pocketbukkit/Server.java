@@ -9,8 +9,10 @@
 
 package net.pocketbukkit;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.Properties;
 import java.util.Random;
 
 import net.pocketbukkit.network.UDPSocket;
@@ -25,15 +27,16 @@ public class Server {
 	public static final int protocol = 18;
 	public static String serverName = "Minecraft: PE Server";
 	private ServerLogger logger = new ServerLogger();
+	public static int port = getServerPort();
 
-	public void run() {
-		serverRunning = true;
+	public void run() throws IOException {
 		this.logger.info("Server starting on: *:" + getServerPort() + ", on Minecraft Version: " + MinecraftVersion);
 		this.logger.info("This server is running PocketBukkit version " + version + " (" + codename + ") (" + api + ")");
 		checkFiles();
 		enablePlugins();
 		loadWorlds();
 		startStopServer();
+		serverRunning = true;
 		this.logger.info("Done!");
 	}
 
@@ -44,9 +47,9 @@ public class Server {
 	 	return new String(rconPass);
 	 }
 	
-	public void checkFiles(){
+	public void checkFiles() throws IOException{
 		this.logger.info("Loading server properties...");
-		//TODO: Check the default server files and generate them if non existent
+		//TODO: Properties loader
 	}
 	
 	public void enablePlugins(){
@@ -59,29 +62,16 @@ public class Server {
 		//TODO: Load levels (start with default level) and generate them if non existent
 	}
 
-	public int getServerPort() {
+	public static int getServerPort() {
 		return 19132;
 	}
 	
 	public void startStopServer(){
-		if(serverRunning || !serverRunning){
-			try {
-				ServerSocket sock = new ServerSocket(getServerPort());
-				if(!serverRunning){
-					sock.accept();
-				}else{
-					sock.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-				this.logger.fatal("Unable to bind to port " + getServerPort());
-			}
-		}else{
-			this.logger.fatal("An error occured while checking socket status!");
-		}
+		//TODO: Start/Stop Server
 	}
 
 	public void stop() {
+		startStopServer();
 		serverRunning = false;
 		System.exit(0);
 	}
