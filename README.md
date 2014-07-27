@@ -12,4 +12,10 @@ software will only be released when it doesn't cause any form of crash on the de
 contribute or report an issue, please open a new issue/pull request.
 
 Thanks,
+
 PocketBukkit Team
+
+Where Can I Get PocketBukkit?
+============
+
+You can download the most recent version of PocketBukkit or get plugins posted by staff or other users of the software at: http://pocketbukkit.net
