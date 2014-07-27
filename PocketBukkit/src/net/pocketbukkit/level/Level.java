@@ -18,7 +18,7 @@ public class Level {
 
 	public static void createDefaultWorld() {
 		String level = (String) (Server.server.getProperty("level-name"));
-		logger.info("Generating new world...");
+		logger.info("[PocketBukkit] Generating new world...");
 		File createDefaultLevel = new File("worlds/" + level);
 		createDefaultLevel.mkdir();
 		generateChunks(level);
