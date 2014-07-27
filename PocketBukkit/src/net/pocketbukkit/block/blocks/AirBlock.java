@@ -10,10 +10,10 @@
 package net.pocketbukkit.block.blocks;
 
 import net.pocketbukkit.block.Block;
+import net.pocketbukkit.block.Transparent;
 
-public class Air {
-	
-	public static void __construct(){
+public class AirBlock extends Transparent implements Block {
+	public static void main(String[] args){
 		boolean isActivable = false;
 		boolean breakable = false;
 		boolean isFlowable = true;
@@ -24,9 +24,5 @@ public class Air {
 		boolean isSolid = false;
 		boolean isFullBlock = true;
 		int hardness = 0;
-	}
-	
-	public static void getBoundingBox(){
-		//TODO
 	}
 }
