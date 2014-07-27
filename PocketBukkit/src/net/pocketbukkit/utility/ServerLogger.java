@@ -9,23 +9,61 @@
 
 package net.pocketbukkit.utility;
 
-import net.pocketbukkit.format.Color;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+//import net.pocketbukkit.format.Color;
 
 public class ServerLogger{
 	public void info(String string) {
-		System.out.println(Color.FORMAT_GREEN + System.currentTimeMillis() + "[INFO] " + Color.FORMAT_RESET + string);
+		System.out.println("[INFO] " + string);
+		try {
+			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
+			log.write("[INFO] " + string + "\n");
+			log.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void warning(String string) {
-		System.out.println(Color.FORMAT_YELLOW + System.currentTimeMillis() + "[WARNING] " + Color.FORMAT_RESET + string);
+		System.out.println("[WARNING] " + string);
+		try {
+			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
+			log.write("[WARNING] " + string + "\n");
+			log.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void error(String string) {
-		System.out.println(Color.FORMAT_RED + System.currentTimeMillis() + "[ERROR] " + Color.FORMAT_RESET + string);
+		System.out.println("[ERROR] " + string);
+		try {
+			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
+			log.write("[ERROR] " + string + "\n");
+			log.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void debug(String string) {
-		System.out.println(Color.FORMAT_CYAN + System.currentTimeMillis() + "[DEBUG] " + Color.FORMAT_RESET + string);
+		System.out.println("[DEBUG] " +  string);
+		try {
+			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
+			log.write("[DEBUG] " + string + "\n");
+			log.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void fatal(String string) {
-		System.out.println(Color.FORMAT_RED + System.currentTimeMillis() + "[FATAL] " + string);
+		System.out.println("[FATAL] " + string);
+		try {
+			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
+			log.write("[FATAL] " + string + "\n");
+			log.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		System.exit(1);
 	}
 }
