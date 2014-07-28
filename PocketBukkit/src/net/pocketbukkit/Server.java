@@ -41,6 +41,7 @@ public class Server {
 		enablePlugins();
 		loadWorlds();
 		Server.logger.info("[PocketBukkit] Done!");
+		System.in.read();
 	}
 
 	public static String generateString(Random rng, String characters, int length) { 
