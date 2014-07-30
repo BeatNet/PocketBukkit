@@ -23,9 +23,10 @@ import net.pocketbukkit.utility.ServerLogger;
 public class Server {
 	public static Properties server = new Properties();
 	public static boolean serverRunning = false;
-	public static final String version = "Alpha_0.1.5dev";
+	public static final String version = "Alpha_0.1.0dev";
 	public static final String codename = "Baby Villager";
 	public static final String api = "1.0.0";
+	public static boolean defaultLevelExists = false;
 	public static final String MinecraftVersion = "v0.9.5 alpha";
 	public static final int protocol = 18;
 	public static String serverName = "Minecraft: PE Server";
@@ -33,9 +34,9 @@ public class Server {
 	public static ServerLogger logger = new ServerLogger();
 
 	public void run() throws IOException {
+		Server.logger.info("[PocketBukkit] Server starting on: *:" + getServerPort() + ", on Minecraft Version: " + MinecraftVersion);
 		startStopServer();
 		serverRunning = true;
-		Server.logger.info("[PocketBukkit] Server starting on: *:" + getServerPort() + ", on Minecraft Version: " + MinecraftVersion);
 		Server.logger.info("[PocketBukkit] This server is running PocketBukkit version " + version + " (" + codename + ") (" + api + ")");
 		checkFiles();
 		enablePlugins();
@@ -131,14 +132,14 @@ public class Server {
 		if(!worlds.exists()){
 			Server.logger.info("[PocketBukkit] No worlds folder found! Creating one...");
 			worlds.mkdir();
-			Level.createDefaultWorld();
+			defaultLevelExists = false;
 		}else{
 			String level = server.getProperty("level-name");
 			File defaultlevel = new File("worlds/" + level);
 			if(defaultlevel.exists() && defaultlevel.isDirectory()){
-				Level.loadDefaultLevel();
+				defaultLevelExists = true;
 			}else{
-				Level.createDefaultWorld();
+				defaultLevelExists = false;
 			}
 		}
 	}
@@ -150,7 +151,12 @@ public class Server {
 	
 	public void loadWorlds(){
 		Server.logger.info("[PocketBukkit] Loading worlds...");
-		//TODO: Load levels (start with default level) and generate them if non existent
+		if(defaultLevelExists){
+			
+		}else{
+			Level.createDefaultLevel();
+		}
+		Level.loadAllLevels();
 	}
 
 	public static String getServerPort() {
@@ -172,8 +178,7 @@ public class Server {
 			thread.start();
 			TCPSocket.openTCPPort();
 		} catch (IOException e) {
-			Server.logger.info("[PocketBukkit] There was a IOException! Printing stack trace:");
-			e.printStackTrace();
+			Server.logger.error("[PocketBukkit] Unable to bind to port " + port + "!");
 		}
 	}
 
