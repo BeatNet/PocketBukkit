@@ -19,3 +19,13 @@ Where Can I Get PocketBukkit?
 ============
 
 You can download the most recent version of PocketBukkit or get plugins posted by staff or other users of the software at: http://pocketbukkit.net
+
+Why have there not been a lot of commits recently?
+============
+
+Dont worry.  This is probably only because the main contributor(s) are on vacation, visiting family, have company, etc.  They will get back to work soon.
+
+How can I join?
+============
+
+In order to join the PocketBukkit organization, you must know Java enough to be able to help in a way that is productive.  If you know enough Java and want to join, please email me at philipshilling@comedyman937.com with your GitHub username and a little about your experience in Java.
