@@ -13,6 +13,7 @@ public class Tool {
 	public static void main(String[] args){
 		boolean isPlacable = false;
 		boolean isWearable = false;
+		boolean isEdible = false;
 		boolean isObtainable = true;
 		boolean isDropable = true;
 		boolean requiresOP = false;
