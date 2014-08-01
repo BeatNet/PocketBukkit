@@ -102,6 +102,7 @@ public interface Item {
 	/* Item Settings */
 	public static boolean isPlacable = false;
 	public static boolean isWearable = false;
+	public static boolean isEdible = false;
 	public static boolean isObtainable = true;
 	public static boolean requiresOP = false;
 	public static int strength = 1;
