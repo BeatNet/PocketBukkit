@@ -9,7 +9,7 @@
 
 package net.pocketbukkit.item;
 
-public class Item {
+public interface Item {
 	/* Item IDs */
 	public static final int IRON_SHOVEL = 0;
 	public static final int IRON_PICKAXE = 0;
