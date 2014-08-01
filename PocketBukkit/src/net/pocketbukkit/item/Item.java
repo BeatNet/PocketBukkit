@@ -11,7 +11,6 @@ package net.pocketbukkit.item;
 
 public class Item {
 	/* Item IDs */
-	public static int AIR = 0;
 	public static int STONE = 1;
 	public static int GRASS = 2;
 	public static int DIRT = 3;
