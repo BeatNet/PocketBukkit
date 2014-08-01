@@ -12,7 +12,7 @@ package net.pocketbukkit.item.items;
 import net.pocketbukkit.item.Item;
 import net.pocketbukkit.item.Weapon;
 
-public class IronShovel extends Weapon implements Item {
+public class IronSword extends Weapon implements Item {
 	public static void main(String[] args){
 		int strength = 3;
 	}
