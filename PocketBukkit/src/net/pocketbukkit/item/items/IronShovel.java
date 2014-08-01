@@ -14,6 +14,6 @@ import net.pocketbukkit.item.Tool;
 
 public class IronShovel extends Tool implements Item {
 	public static void main(String[] args){
-		int strength = 1;
+		int strength = 2;
 	}
 }
