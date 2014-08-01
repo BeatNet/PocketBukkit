@@ -30,10 +30,10 @@ public class Player {
 	}
 	
 	public InetAddress getAddress() throws UnknownHostException{
-    	return InetAddress.getByName(this.userIP);
-    }
+    		return InetAddress.getByName(this.userIP);
+    	}
     
-    public int getPort(){
-    	return this.port;
-    }
+    	public int getPort(){
+    		return this.port;
+    	}
 }
