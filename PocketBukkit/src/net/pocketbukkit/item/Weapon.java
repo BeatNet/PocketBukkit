@@ -9,7 +9,12 @@
 
 package net.pocketbukkit.item;
 
+import net.pocketbukkit.Player;
+
 public class Weapon {
+	public static int strength;
+	public static String target;
+
 	public static void main(String[] args){
 		boolean isPlacable = false;
 		boolean isWearable = false;
@@ -17,5 +22,9 @@ public class Weapon {
 		boolean isObtainable = true;
 		boolean isDropable = true;
 		boolean requiresOP = false;
+	}
+	
+	public static void doDamage(){
+		Player.subtractHealth(target, strength);
 	}
 }
