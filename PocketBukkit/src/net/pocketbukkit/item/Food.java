@@ -9,6 +9,8 @@
 
 package net.pocketbukkit.item;
 
+import net.pocketbukkit.Player;
+
 public class Food {
 	public static void main(String[] args){
 		boolean isPlacable = false;
@@ -17,5 +19,9 @@ public class Food {
 		boolean isObtainable = true;
 		boolean isDropable = true;
 		boolean requiresOP = false;
+	}
+
+	public static void giveHealth(String target, int food){
+		Player.addHealth(target, food);
 	}
 }
