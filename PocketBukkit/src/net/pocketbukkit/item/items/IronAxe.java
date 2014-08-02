@@ -13,7 +13,10 @@ import net.pocketbukkit.item.Item;
 import net.pocketbukkit.item.Tool;
 
 public class IronAxe extends Tool implements Item {
+	public static final String target = null;
+	public static final int strength = 2;
+
 	public static void main(String[] args){
-		int strength = 2;
+		Tool.doDamage(target, strength);
 	}
 }
