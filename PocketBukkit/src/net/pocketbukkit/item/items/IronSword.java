@@ -10,10 +10,14 @@
 package net.pocketbukkit.item.items;
 
 import net.pocketbukkit.item.Item;
+import net.pocketbukkit.item.Tool;
 import net.pocketbukkit.item.Weapon;
 
 public class IronSword extends Weapon implements Item {
+	public static final String target = null;
+	public static final int strength = 3;
+
 	public static void main(String[] args){
-		int strength = 3;
+		Tool.doDamage(target, strength);
 	}
 }
