@@ -9,6 +9,8 @@
 
 package net.pocketbukkit.item;
 
+import net.pocketbukkit.Player;
+
 public class Tool {
 	public static void main(String[] args){
 		boolean isPlacable = false;
@@ -17,5 +19,9 @@ public class Tool {
 		boolean isObtainable = true;
 		boolean isDropable = true;
 		boolean requiresOP = false;
+	}
+
+	public static void doDamage(String target, int strength) {
+		Player.subtractHealth(target, strength);
 	}
 }
