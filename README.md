@@ -3,6 +3,8 @@ PocketBukkit
 
 Minecraft PE Server Software
 
+NOTICE: The PocketBukkit Project is on hold as of August 3, 2014.  The project will continue development on August 19, 2014.  This is due to vacationing developers and other reasons that may or may not be similar.  For more information, please visit: http://PocketBukkit.net/forums
+
 What is PocketBukkit?
 ============
 
@@ -19,11 +21,6 @@ Where Can I Get PocketBukkit?
 ============
 
 You can download the most recent version of PocketBukkit or get plugins posted by staff or other users of the software at: http://pocketbukkit.net
-
-Why have there not been a lot of commits recently?
-============
-
-Dont worry.  This is probably only because the main contributor(s) are on vacation, visiting family, have company, etc.  They will get back to work soon.
 
 How can I join?
 ============
