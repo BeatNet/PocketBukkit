@@ -4,8 +4,9 @@ PocketBukkit
 Minecraft PE Server Software
 
 LINKS
-------------
+============
 Main PocketBukkit Website - http://PocketBukkit.net/
+
 PocketBukkit Forums - http://PocketBukkit.net/forums/
 
 What is PocketBukkit?
