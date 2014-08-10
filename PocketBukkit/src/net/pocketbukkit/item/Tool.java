@@ -21,7 +21,8 @@ public class Tool {
 		boolean requiresOP = false;
 	}
 
-	public static void doDamage(String target, int strength) {
-		Player.subtractHealth(target, strength);
+	public static void doDamage(int strength) {
+		int finalHealth = (int)(Player.getHealth() - strength);
+		Player.setHealth(finalHealth);
 	}
 }
