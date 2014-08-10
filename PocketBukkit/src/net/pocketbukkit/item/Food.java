@@ -21,7 +21,8 @@ public class Food {
 		boolean requiresOP = false;
 	}
 
-	public static void giveHealth(String target, int food){
-		Player.addHealth(target, food);
+	public static void giveHealth(int food){
+		int finalHealth = (int)(Player.getHealth() + food);
+		Player.setHealth(finalHealth);
 	}
 }
