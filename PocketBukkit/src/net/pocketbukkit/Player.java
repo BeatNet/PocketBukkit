@@ -36,17 +36,20 @@ public class Player {
 		//TODO: Player kicking
 	}
 	
-	
 	public void kill() {
 		//TODO: Killing Player
 	}
 	
 	public void sendMessage(String Message) {
-		//TODO: Sends a Message to the Player
+		//TODO: Send a Message to the Player
 	}
 	
 	public void ban() {
 		//TODO: Ban player username
+	}
+	
+	public void whitelist() {
+		//TODO: Add player to whitelist.txt
 	}
 	
 	public void banIP() {
