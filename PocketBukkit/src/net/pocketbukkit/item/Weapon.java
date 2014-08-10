@@ -24,7 +24,8 @@ public class Weapon {
 		boolean requiresOP = false;
 	}
 	
-	public static void doDamage(){
-		Player.subtractHealth(target, strength);
+	public static void doDamage(int strength){
+		int finalHealth = (int)(Player.getHealth() - strength);
+		Player.setHealth(finalHealth);
 	}
 }
