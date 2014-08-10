@@ -32,7 +32,7 @@ public class Player {
 		//TODO: Add player to ops.txt
 	}
 	
-	public void kick() {
+	public void kick(String reason) {
 		//TODO: Player kicking
 	}
 	
