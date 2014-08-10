@@ -76,4 +76,8 @@ public class Player {
 		//TODO: Check banned-ips.txt for IP
 		return boolean;
 	}
+	public void isWhitelisted() {
+		//TODO: Check whitelist.txt for Player
+		return boolean;
+	}
 }
