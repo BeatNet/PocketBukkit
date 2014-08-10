@@ -44,7 +44,7 @@ public class Player {
 		//TODO: Send a Message to the Player
 	}
 	
-	public void ban() {
+	public void ban(String reason) {
 		//TODO: Ban player username
 	}
 	
