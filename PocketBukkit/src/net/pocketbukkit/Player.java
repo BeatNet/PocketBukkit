@@ -9,31 +9,54 @@
 
 package net.pocketbukkit;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 public class Player {
 	public static int nextID = 1;
-	private String username;
-	private String userIP;
-	private int entityID;
-	private int clientID;
-	private int CID;
-	private int port;
 	
-	public String getIP(){
-		return this.userIP;
+	public void getIP() {
+		//TODO: Get Payers IP
 	}
 	
-	public Player(){
-		
+	public void getName() {
+		//TODO: Get player username
 	}
 	
-	public InetAddress getAddress() throws UnknownHostException{
-    		return InetAddress.getByName(this.userIP);
-    	}
-    
-    	public int getPort(){
-    		return this.port;
-    	}
+	public void getHealth() {
+		//TODO: Get players health
+	}
+	
+	public void setHealth() {
+		//TODO: Change health to an int
+	}
+	
+	public void kick() {
+		//TODO: Player kicking
+	}
+	
+	public void ban() {
+		//TODO: Ban player username
+	}
+	
+	public void banIP() {
+		String IP = getIP();
+		//TODO: Ban player IP
+	}
+	
+	public void unBan() {
+		//TODO: Unban player username
+	}
+	
+	public void unBanIP() {
+		//TODO: Unban player IP
+	}
+	
+	public void isBanned() {
+		//TODO: Check banned-players.txt
+		return boolean;
+	}
+	
+	public void isIPBanned() {
+		String IP = getIP();
+		//TODO: Check banned-ips.txt for IP
+		return boolean;
+	}
 }
