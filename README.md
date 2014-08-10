@@ -9,6 +9,8 @@ Main PocketBukkit Website - http://PocketBukkit.net/
 
 PocketBukkit Forums - http://PocketBukkit.net/forums/
 
+Twitter - http://Twitter.com/PocketBukkit
+
 What is PocketBukkit?
 ============
 
