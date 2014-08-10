@@ -28,6 +28,10 @@ public class Player {
 		//TODO: Change health to an int
 	}
 	
+	public void op() {
+		//TODO: Add player to ops.txt
+	}
+	
 	public void kick() {
 		//TODO: Player kicking
 	}
@@ -41,12 +45,21 @@ public class Player {
 		//TODO: Ban player IP
 	}
 	
+	public void deOp() {
+		//TODO: Reove player from ops.txt
+	}
+	
 	public void unBan() {
 		//TODO: Unban player username
 	}
 	
 	public void unBanIP() {
 		//TODO: Unban player IP
+	}
+	
+	public void isOp() {
+		//TODO: Check ops.txt
+		return boolean;
 	}
 	
 	public void isBanned() {
