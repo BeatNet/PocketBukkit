@@ -36,6 +36,10 @@ public class Player {
 		//TODO: Player kicking
 	}
 	
+	public void kill() {
+		//TODO: Killing Player
+	}
+	
 	public void ban() {
 		//TODO: Ban player username
 	}
