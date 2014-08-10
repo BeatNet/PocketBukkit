@@ -55,6 +55,11 @@ public class Server {
 	public void checkFiles() throws IOException{
 		Server.logger.info("[PocketBukkit] Loading server properties...");
 		/* Create the files */
+		File whitelist = new File("whitelist.txt");
+		if(!whitelist.exists()){
+			Server.logger.info("[PocketBukkit] No whitelist file found! Creating one...");
+			whitelist.createNewFile();
+		}
 		File bannedips = new File("banned-ips.txt");
 		if(!bannedips.exists()){
 			Server.logger.info("[PocketBukkit] No banned ips file found! Creating one...");
