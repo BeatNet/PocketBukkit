@@ -24,7 +24,7 @@ public class Player {
 		//TODO: Get players health
 	}
 	
-	public void setHealth() {
+	public void setHealth(String target, int finalHealth) {
 		//TODO: Change health to an int
 	}
 	
@@ -36,8 +36,12 @@ public class Player {
 		//TODO: Player kicking
 	}
 	
-	public void kill() {
-		//TODO: Killing Player
+	public void heal(String target) {
+		setHealth(target, 20);
+	}
+	
+	public void kill(String target) {
+		setHealth(target, 0);
 	}
 	
 	public void sendMessage(String Message) {
