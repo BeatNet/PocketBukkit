@@ -14,7 +14,7 @@ public class File {
   
   public static void createFile(String folder, String file) {
     createFolder(folder);
-    File file = new File(plugin + "/" + file);
+    File file = new File(folder + "/" + file);
     if(!file.exists()) {
       file.createNewFile();
     }
@@ -26,5 +26,14 @@ public class File {
   
   public static void getProperty(String folder, String file, String propertyName) {
     //TODO: Implement properties
+  }
+  
+  public static void fileExists(String folder, String file) {
+    File file = new File(folder + "/" + file);
+    if(file.exists()) {
+      return true;
+    }else{
+      return false;
+    }
   }
 }
