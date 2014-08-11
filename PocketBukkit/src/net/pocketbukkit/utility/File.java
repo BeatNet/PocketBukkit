@@ -14,9 +14,9 @@ public class File {
   
   public static void createFile(String folder, String file) {
     createFolder(folder);
-    File file = new File(folder + "/" + file);
+    File f = new File(folder + "/" + file);
     if(!file.exists()) {
-      file.createNewFile();
+      f.createNewFile();
     }
   }
   
@@ -28,9 +28,9 @@ public class File {
     //TODO: Implement properties
   }
   
-  public static void fileExists(String folder, String file) {
-    File file = new File(folder + "/" + file);
-    if(file.exists()) {
+  public static void checkExists(String folder, String file) {
+    File f = new File(folder + "/" + file);
+    if(f.exists()) {
       return true;
     }else{
       return false;
