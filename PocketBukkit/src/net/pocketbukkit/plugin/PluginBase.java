@@ -9,89 +9,21 @@
 
 package net.pocketbukkit.plugin;
 
-import net.pocketbukkit.utility.ServerLogger;
-
-public class PluginBase implements Plugin {
-	private String loader;
-	private String server;
-	private boolean isEnabled = false;
-	private boolean initialized = false;
-	private String description;
-	private String dataFolder;
-	private String config;
-	private String configFile;
-	private String file;
-	private ServerLogger logger = new ServerLogger();
+public class PluginBase {
 	
-	public void onLoad() {
+	public static void onEnable() {
 		
 	}
 	
-	public void onEnable() {
+	public static void registerCommand(String command, String description) {
 		
-	}
-
-	public void setEnabled(boolean isEnabled){
-		if(this.isEnabled){
-			this.onEnable();
-		}else{
-			this.onDisable();
-		}
 	}
 	
-	public boolean isEnabled() {
-		return this.isEnabled == true;
-	}
-
-	public String getDataFolder() {
-		return this.dataFolder;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void getResource() {
+	public static void registerEvent(String event) {
 		
 	}
-
-	public void saveResource() {
-		
-	}
-
-	public void getResources() {
-		
-	}
-
-	public void getConfig() {
-		
-	}
-
-	public void saveConfig() {
-		
-	}
-
-	public void saveDefaultConfig() {
-		
-	}
-
-	public void reloadConfig() {
-		
-	}
-
-	public String getServer() {
-		return this.server;
-	}
-
-	public void getPluginLoader() {
-		
-	}
-
-	public void onDisable() {
-		
-	}
-
-	public void isDisabled() {
+	
+	public static void onDisable() {
 		
 	}
 }
