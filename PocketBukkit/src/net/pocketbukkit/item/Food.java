@@ -12,6 +12,8 @@ package net.pocketbukkit.item;
 import net.pocketbukkit.Player;
 
 public class Food {
+	private static Object finalHealth;
+
 	public static void main(String[] args){
 		boolean isPlacable = false;
 		boolean isWearable = false;
@@ -21,8 +23,8 @@ public class Food {
 		boolean requiresOP = false;
 	}
 
-	public static void giveHealth(int food){
-		int finalHealth = (int)(Player.getHealth() + food);
-		Player.setHealth(finalHealth);
+	public static void giveHealth(String target, int food){
+		finalHealth = Player.getHealth() + food; //For some reason Eclipse is throwing an error for this
+		Player.setHealth(target, finalHealth);
 	}
 }

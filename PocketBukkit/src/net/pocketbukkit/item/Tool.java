@@ -21,8 +21,8 @@ public class Tool {
 		boolean requiresOP = false;
 	}
 
-	public static void doDamage(int strength) {
-		int finalHealth = (int)(Player.getHealth() - strength);
-		Player.setHealth(finalHealth);
+	public static void doDamage(String target, int strength) {
+		int finalHealth = Player.getHealth() - strength; //For some reason Eclipse is throwing an error for this
+		Player.setHealth(target, finalHealth);
 	}
 }

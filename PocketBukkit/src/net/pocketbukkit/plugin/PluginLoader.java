@@ -1,5 +1,5 @@
 package net.pocketbukkit.plugin;
 
-publis clas PluginLoader {
+public class PluginLoader {
   //TODO: Load plugins
 }

@@ -12,8 +12,6 @@ package net.pocketbukkit.item;
 import net.pocketbukkit.Player;
 
 public class Weapon {
-	public static int strength;
-	public static String target;
 
 	public static void main(String[] args){
 		boolean isPlacable = false;
@@ -24,8 +22,8 @@ public class Weapon {
 		boolean requiresOP = false;
 	}
 	
-	public static void doDamage(int strength){
-		int finalHealth = (int)(Player.getHealth() - strength);
-		Player.setHealth(finalHealth);
+	public static void doDamage(String target, int strength){
+		int finalHealth = Player.getHealth() - strength; //For some reason Eclipse is throwing an error for this
+		Player.setHealth(target, finalHealth);
 	}
 }

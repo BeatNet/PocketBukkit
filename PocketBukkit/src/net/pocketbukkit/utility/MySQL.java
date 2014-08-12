@@ -1,6 +1,6 @@
 package net.pocketbukkit.utility;
 
-pubic class MySQL {
+public class MySQL {
   public static void connect() {
     //TODO: Connect to database
   }

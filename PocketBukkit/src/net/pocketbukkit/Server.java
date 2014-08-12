@@ -152,8 +152,7 @@ public class Server {
 
 	public void getRam(){
 		String ram = server.getProperty("ram");
-		//server.getProperty will not work "as is" because it is not defined here ^-^
-		if(ram < "128"){
+		if(ram < "128"){ //For some reason this is throwing an error in Eclipse
 		  Server.logger.fatal("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");
 		  //Using the fatal logger will close the server automatically
 		}

@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.OutputStream; //Dont think this is needed but just in case
 
 public class File {
-  public static void createFolder(String folder) {
-    File dir = new File(folder + "/");
+public static void createFolder(String folder) {
+    File dir = new File(folder + "/"); //For some reason Eclipse is throwing an error for this
     if(!dir.exists()) {
       dir.mkdir();
     }

@@ -12,19 +12,20 @@ package net.pocketbukkit;
 public class Player {
 	public static int nextID = 1;
 	
-	public void getIP() {
+	public String getIP() {
 		//TODO: Get Payers IP
+		return null;
 	}
 	
 	public void getName() {
 		//TODO: Get player username
 	}
 	
-	public void getHealth() {
+	public static void getHealth() {
 		//TODO: Get players health
 	}
 	
-	public void setHealth(String target, int finalHealth) {
+	public static void setHealth(String target, Object finalHealth) {
 		//TODO: Change health to an int
 	}
 	
@@ -75,21 +76,17 @@ public class Player {
 	
 	public void isOp() {
 		//TODO: Check ops.txt
-		return boolean;
 	}
 	
 	public void isBanned() {
 		//TODO: Check banned-players.txt
-		return boolean;
 	}
 	
 	public void isIPBanned() {
 		String IP = getIP();
 		//TODO: Check banned-ips.txt for IP
-		return boolean;
 	}
 	public void isWhitelisted() {
 		//TODO: Check whitelist.txt for Player
-		return boolean;
 	}
 }
