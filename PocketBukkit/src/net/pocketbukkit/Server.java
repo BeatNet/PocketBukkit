@@ -106,7 +106,9 @@ public class Server {
 				server.setProperty("announce-player-achievements", "true");
 				server.setProperty("white-list", "false");
 				server.setProperty("ram", "1024");
-				server.setProperty("ip", "127.0.0.1");
+                                //Setting the IP to 127.0.0.1 will make players unable to join.
+                                //It might confuse them.
+				server.setProperty("ip", "");
 				server.setProperty("port", "19132");
 				server.setProperty("name", "PocketBukkit Server");
 				File f = new File("server.properties");
