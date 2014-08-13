@@ -1,5 +1,5 @@
 #!/bin/bash
-Stay_Updated="yes"
+Stay_Updated="no"
 
 #Look for WGET or CURL commands
 shopt -s expand_aliases
