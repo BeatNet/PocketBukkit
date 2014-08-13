@@ -34,7 +34,7 @@ public class Server {
 	public static ServerLogger logger = new ServerLogger();
 
 	public void run() throws IOException {
-		Server.logger.info("[PocketBukkit] Server starting on: *:" + getServerPort() + ", on Minecraft Version: " + MinecraftVersion);
+		Server.logger.info("[PocketBukkit] Server starting on *:" + getServerPort() + ", on Minecraft Version: " + MinecraftVersion);
 		startStopServer();
 		serverRunning = true;
 		Server.logger.info("[PocketBukkit] This server is running PocketBukkit version " + version + " (" + codename + ") (" + api + ")");
@@ -106,8 +106,6 @@ public class Server {
 				server.setProperty("announce-player-achievements", "true");
 				server.setProperty("white-list", "false");
 				server.setProperty("ram", "1024");
-                                //Setting the IP to 127.0.0.1 will make players unable to join.
-                                //It might confuse them.
 				server.setProperty("ip", "");
 				server.setProperty("port", "19132");
 				server.setProperty("name", "PocketBukkit Server");
@@ -153,14 +151,11 @@ public class Server {
 
 
 	public void getRam(){
-		
-		
-		String GetRam = server.getProperty("ram"); //I knew I would make a mistake
-		if(GetRam =< "128"){
-		Server.logger.info("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");
-		
-		//System.exit(0); May add that to stop server 
- //If this has any errors oh well I will fix later need sleep! - SpiderPig	
+		String ram = server.getProperty("ram");
+		//server.getProperty will not work "as is" because it is not defined here ^-^
+		if(ram < "128"){
+		  Server.logger.fatal("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");
+		  //Using the fatal logger will close the server automatically
 		}
 	}
 	
@@ -187,7 +182,7 @@ public class Server {
 		if(serverPort == "19132" || serverPort == "19133" || serverPort == "19134" || serverPort == "19135" || serverPort == "19136" || serverPort == "19137" || serverPort == "19138" || serverPort == "19139" || serverPort == "19140" || serverPort == "19141" || serverPort == "19142" || serverPort == "19143" || serverPort == "19144" || serverPort == "19145"){
 			
 		}else{
-			logger.fatal("[PocketBukkit] Server port must be between 19132 and 19145!");
+			Server.logger.fatal("[PocketBukkit] Server port must be between 19132 and 19145!");
 		}
 		return serverPort;
 		*/
