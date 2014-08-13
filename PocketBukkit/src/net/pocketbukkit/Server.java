@@ -155,7 +155,7 @@ public class Server {
 	public void getRam(){
 		
 		
-		String GetRam = server.getProperty("port");
+		String GetRam = server.getProperty("ram"); //I knew I would make a mistake
 		if(GetRam =< "128"){
 		Server.logger.info("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");  //If this has any errors oh well I will fix later need sleep! - SpiderPig	
 		}
