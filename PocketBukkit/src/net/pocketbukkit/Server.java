@@ -151,6 +151,19 @@ public class Server {
 		}
 	}
 
+
+	public void getRam(){
+		
+		
+		String GetRam = server.getProperty("port");
+		if(GetRam =< "128"){
+		Server.logger.info("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");  //If this has any errors oh well I will fix later need sleep! - SpiderPig	
+		}
+		
+	
+	}
+	
+
 	public void enablePlugins(){
 		Server.logger.info("[PocketBukkit] Loading plugins...");
 		//TODO: Check the plugins directory for any files and try to load the proper JAR files
