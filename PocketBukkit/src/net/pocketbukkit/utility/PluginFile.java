@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream; //Dont think this is needed but just in case
 
-public class File {
+public class PluginFile {
 public static void createFolder(String folder) {
     File dir = new File(folder + "/"); //For some reason Eclipse is throwing an error for this
     if(!dir.exists()) {
@@ -14,9 +14,9 @@ public static void createFolder(String folder) {
   
   public static void createFile(String folder, String file) {
     createFolder(folder);
-    File f = new File(folder + "/" + file);
-    if(!file.exists()) {
-      f.createNewFile();
+    File finalLocation = new File(folder + file);
+    if(!finalLocation.exists()) {
+      finalLocation.mkdir();
     }
   }
   
@@ -28,9 +28,9 @@ public static void createFolder(String folder) {
     //TODO: Implement properties
   }
   
-  public static void checkExists(String folder, String file) {
-    File f = new File(folder + "/" + file);
-    if(f.exists()) {
+  public static boolean checkExists(String folder, String file) {
+    File finalLocation = new File(folder + "/" + file);
+    if(finalLocation.exists()) {
       return true;
     }else{
       return false;

@@ -21,8 +21,8 @@ public class Player {
 		//TODO: Get player username
 	}
 	
-	public static void getHealth() {
-		//TODO: Get players health
+	public static int getHealth() {
+		return 0;
 	}
 	
 	public static void setHealth(String target, Object finalHealth) {

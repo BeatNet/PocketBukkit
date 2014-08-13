@@ -15,15 +15,18 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
 import java.util.Random;
+
 import net.pocketbukkit.level.Level;
 import net.pocketbukkit.network.TCPSocket;
 //import net.pocketbukkit.network.UDPSocket; <-- This will be used for RCON
 import net.pocketbukkit.utility.ServerLogger;
+import net.pocketbukkit.functions.Convert;
 
 public class Server {
 	public static Properties server = new Properties();
 	public static boolean serverRunning = false;
 	public static final String version = "Alpha_0.1.0dev";
+	public static final String rawVersion = "0.1.1dev";
 	public static final String codename = "Baby Villager";
 	public static final String api = "1.0.0";
 	public static boolean defaultLevelExists = false;
@@ -152,7 +155,7 @@ public class Server {
 
 	public void getRam(){
 		String ram = server.getProperty("ram");
-		if(ram < "128"){ //For some reason this is throwing an error in Eclipse
+		if(Convert.stringToInt(ram) < 128){
 		  Server.logger.fatal("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");
 		  //Using the fatal logger will close the server automatically
 		}
