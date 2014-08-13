@@ -44,9 +44,13 @@ if [ "$PB" == "jar" ]; then
   java -jar PocketBukkit.jar
 else
   if [ "$PB" == "compile" ]; then
+    echo "[WARNING] PocketBukkit needs to be compiled!"
+    echo "[1/2] Compiling PocketBukkit..."
     javac src/net/pocketbukkit/*.java
     javac src/net/pocketbukkit/*/*.java
     javac src/net/pocketbukkit/*/*/*.java
+    echo "Done!"
+    echo "[2/2] Starting PocketBukkit..."
     java src/net/pocketbukkit/PocketBukkit.class
   else
     if [ "$PB" == "download" ]; then
