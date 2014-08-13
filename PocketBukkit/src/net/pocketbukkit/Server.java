@@ -157,10 +157,11 @@ public class Server {
 		
 		String GetRam = server.getProperty("ram"); //I knew I would make a mistake
 		if(GetRam =< "128"){
-		Server.logger.info("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");  //If this has any errors oh well I will fix later need sleep! - SpiderPig	
-		}
+		Server.logger.info("[PocketBukkit] You need to have at least 128MBs of Ram for the server to work correctly!");
 		
-	
+		//System.exit(0); May add that to stop server 
+ //If this has any errors oh well I will fix later need sleep! - SpiderPig	
+		}
 	}
 	
 
