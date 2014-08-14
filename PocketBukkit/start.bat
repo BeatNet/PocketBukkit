@@ -49,9 +49,9 @@ IF %PB% == jar (
         rmdir src/
       )
       IF EXIST src/net/pocketbukkit/PocketBukkit.class (
-        rm src/
+        rmdir src/
       )
-      XCOPY http://pocketbukkit.net/download/0001/PocketBukkit.jar
+      XCOPY http://pocketbukkit.net/download/latest/PocketBukkit.jar
       java -jar PocketBukkit.jar
     ) ELSE (
       IF %PB% == runsrc (
