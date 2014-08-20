@@ -16,11 +16,9 @@ import net.pocketbukkit.Server;
 import net.pocketbukkit.utility.ServerLogger;
 
 public class Level {
-	private static final ServerLogger logger = new ServerLogger();
-
 	public static void createDefaultLevel() {
 		String level = (String) (Server.server.getProperty("level-name"));
-		logger.info("[PocketBukkit] Generating new world...");
+		ServerLogger.info("[PocketBukkit] Generating new world...");
 		File createDefaultLevel = new File("worlds/" + level);
 		createDefaultLevel.mkdir();
 		generateChunks(level);
@@ -32,7 +30,7 @@ public class Level {
 
 	private static void generateChunks(String level) {
 		File data = new File("worlds/" + level + "/level.dat");
-		Server.logger.info("[PocketBukkit] No ops file found! Creating one...");
+		ServerLogger.info("[PocketBukkit] No ops file found! Creating one...");
 		try {
 			data.createNewFile();
 		} catch (IOException e) {
