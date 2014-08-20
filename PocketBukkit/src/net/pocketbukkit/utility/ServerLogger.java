@@ -15,7 +15,7 @@ import java.io.IOException;
 //import net.pocketbukkit.format.Color;
 
 public class ServerLogger{
-	public void info(String string) {
+	public static void info(String string) {
 		System.out.println("[INFO] " + string);
 		try {
 			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
@@ -25,7 +25,8 @@ public class ServerLogger{
 			e.printStackTrace();
 		}
 	}
-	public void warning(String string) {
+	
+	public static void warning(String string) {
 		System.out.println("[WARNING] " + string);
 		try {
 			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
@@ -35,7 +36,8 @@ public class ServerLogger{
 			e.printStackTrace();
 		}
 	}
-	public void error(String string) {
+	
+	public static void error(String string) {
 		System.out.println("[ERROR] " + string);
 		try {
 			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
@@ -45,7 +47,8 @@ public class ServerLogger{
 			e.printStackTrace();
 		}
 	}
-	public void debug(String string) {
+	
+	public static void debug(String string) {
 		System.out.println("[DEBUG] " +  string);
 		try {
 			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
@@ -55,7 +58,8 @@ public class ServerLogger{
 			e.printStackTrace();
 		}
 	}
-	public void fatal(String string) {
+	
+	public static void fatal(String string) {
 		System.out.println("[FATAL] " + string);
 		try {
 			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
