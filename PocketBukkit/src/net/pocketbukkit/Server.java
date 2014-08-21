@@ -190,7 +190,7 @@ public class Server {
 		*/
 	}
 	
-	public void startStopServer(){
+	public static void startStopServer(){
 		try {
 			Thread thread = new Thread();
 			thread.start();
@@ -200,7 +200,7 @@ public class Server {
 		}
 	}
 
-	public void stop() {
+	public static void stop() {
 		startStopServer();
 		serverRunning = false;
 		System.exit(0);

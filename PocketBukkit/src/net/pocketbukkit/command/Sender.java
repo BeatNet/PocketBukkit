@@ -17,4 +17,12 @@ public class Sender {
 	public static void sendMessage(String message){
 		
 	}
+
+	public static boolean hasPermission(String permission) {
+		return false;
+	}
+
+	public static void noPermission() {
+		Sender.sendMessage("You do not have permission to do that.");
+	}
 }
