@@ -19,15 +19,21 @@ public class PluginLoader {
 	
 	public static void load() {
 		if(pluginsDirectory.exists()) {
-			//TODO: Load all plugins found
+			File[] plugins = pluginsDirectory.listFiles();
+			for (File plugin : plugins){
+				if (plugin.isFile()){
+					//TODO: Load plugins
+				}
+			}
 		}else{
 			pluginsDirectory.mkdir();
+			ServerLogger.info("[PocketBukkit] No plugins were found in the plugins directory.");
 		}
 	}
 	
-	public static boolean getPlugin(String pluginName, String fileEnd) {
-		if(fileEnd == "jar" || fileEnd == "JAR" || fileEnd == "class" || fileEnd == "CLASS"){
-			File plugin = new File(pluginsDirectory + pluginName + fileEnd);
+	public static boolean getPlugin(String pluginName, String fileType) {
+		if(fileType == "jar" || fileType == "JAR" || fileType == "class" || fileType == "CLASS"){
+			File plugin = new File(pluginsDirectory + pluginName + fileType);
 			if(pluginsDirectory.exists()) {
 				if(plugin.exists()) {
 					return true;
