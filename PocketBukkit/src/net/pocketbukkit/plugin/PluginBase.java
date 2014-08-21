@@ -15,7 +15,7 @@ public class PluginBase {
 		
 	}
 	
-	public static void registerPlugin(String pluginName, String pluginDescription) {
+	public static void registerPlugin(String pluginName, String pluginDescription, String pluginVersion, String APIVersion) {
 		
 	}
 	
