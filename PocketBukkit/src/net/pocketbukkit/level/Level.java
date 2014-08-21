@@ -24,7 +24,7 @@ public class Level {
 		generateChunks(level);
 	}
 	
-	public static void createNewLevel(){
+	public static void createNewLevel(String level){
 		
 	}
 
