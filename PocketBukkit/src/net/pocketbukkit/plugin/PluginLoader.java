@@ -10,6 +10,7 @@
 package net.pocketbukkit.plugin;
 
 import java.io.File;
+
 import net.pocketbukkit.utility.ServerLogger;
 
 public class PluginLoader {
@@ -20,9 +21,10 @@ public class PluginLoader {
 	public static void load() {
 		if(pluginsDirectory.exists()) {
 			File[] plugins = pluginsDirectory.listFiles();
-			for (File plugin : plugins){
-				if (plugin.isFile()){
-					//TODO: Load plugins
+			for(File plugin : plugins) {
+				if(plugin.isFile()) {
+					File pluginFile = new File("" + pluginsDirectory + plugin + "");
+					Class<? extends File> pluginClass = pluginFile.getClass();
 				}
 			}
 		}else{

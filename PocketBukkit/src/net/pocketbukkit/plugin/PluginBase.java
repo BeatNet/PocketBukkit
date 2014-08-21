@@ -15,6 +15,10 @@ public class PluginBase {
 		
 	}
 	
+	public static void registerPlugin(String pluginName, String pluginDescription) {
+		
+	}
+	
 	public static void registerCommand(String command, String description) {
 		
 	}
