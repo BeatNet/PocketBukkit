@@ -36,7 +36,7 @@ public class PluginLoader {
 			if(pluginsDirectory.exists()) {
 				if(fileType == "jar" || fileType == "JAR") {
 					File plugin = new File(pluginsDirectory + pluginName + Jar);
-					if(plugin.exists()) {
+					if(plugin.isFile()) {
 						return true;
 					}else{
 						return false;
@@ -44,7 +44,7 @@ public class PluginLoader {
 				}else{
 					if(fileType == "class" || fileType == "CLASS") {
 						File plugin = new File(pluginsDirectory + pluginName + Class);
-						if(plugin.exists()) {
+						if(plugin.isFile()) {
 							return true;
 						}else{
 							return false;
