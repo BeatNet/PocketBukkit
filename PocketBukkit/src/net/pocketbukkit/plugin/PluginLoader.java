@@ -33,12 +33,25 @@ public class PluginLoader {
 	
 	public static boolean getPlugin(String pluginName, String fileType) {
 		if(fileType == "jar" || fileType == "JAR" || fileType == "class" || fileType == "CLASS"){
-			File plugin = new File(pluginsDirectory + pluginName + fileType);
 			if(pluginsDirectory.exists()) {
-				if(plugin.exists()) {
-					return true;
+				if(fileType == "jar" || fileType == "JAR") {
+					File plugin = new File(pluginsDirectory + pluginName + Jar);
+					if(plugin.exists()) {
+						return true;
+					}else{
+						return false;
+					}
 				}else{
-					return false;
+					if(fileType == "class" || fileType == "CLASS") {
+						File plugin = new File(pluginsDirectory + pluginName + Class);
+						if(plugin.exists()) {
+							return true;
+						}else{
+							return false;
+						}
+					}else{
+						return false;
+					}
 				}
 			}else{
 				pluginsDirectory.mkdir();
