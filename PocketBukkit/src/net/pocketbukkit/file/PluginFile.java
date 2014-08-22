@@ -7,11 +7,9 @@
  *
  */
 
-package net.pocketbukkit.utility;
+package net.pocketbukkit.file;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream; //Dont think this is needed but just in case
 
 public class PluginFile {
 public static void createFolder(String folder) {
