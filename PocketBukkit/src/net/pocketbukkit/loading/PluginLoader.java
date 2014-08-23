@@ -7,7 +7,7 @@
  *
  */
 
-package net.pocketbukkit.plugin;
+package net.pocketbukkit.loading;
 
 import java.io.File;
 
