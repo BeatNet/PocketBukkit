@@ -82,4 +82,12 @@ public class FileManagement {
 		}
 		return false;
 	}
+	
+	public static void getProperty() {
+		//TODO: Get YAML Property
+	}
+	
+	public static void setProperty() {
+		//TODO: Set YAML Property
+	}
 }
