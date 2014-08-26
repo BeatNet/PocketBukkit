@@ -59,8 +59,8 @@ public class FileManagement {
 		return false;
 	}
 	
-	public static boolean checkFolderExists(String Folder, String File) {
-		File file = new File(Folder + "/" + File);
+	public static boolean checkFolderExists(String Folder) {
+		File file = new File(Folder);
 		if(file.exists()) {
 			if(file.isDirectory()) {
 				return true;
@@ -71,8 +71,8 @@ public class FileManagement {
 		return false;
 	}
 	
-	public static boolean checkDirectoryExists(String Folder, String File) {
-		File file = new File(Folder + "/" + File);
+	public static boolean checkDirectoryExists(String Folder) {
+		File file = new File(Folder);
 		if(file.exists()) {
 			if(file.isDirectory()) {
 				return true;
