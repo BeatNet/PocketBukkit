@@ -9,6 +9,10 @@
 
 package net.pocketbukkit.api.plugin;
 
-public class PluginBase {
+public abstract class PluginBase {
 	//TODO: Plugin API
+
+        public abstract void onEnable();
+        public abstract void onDisable();
+      
 }
