@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/PocketBukkit/PocketBukkit.svg?branch=master)](https://travis-ci.org/PocketBukkit/PocketBukkit)
-LINKS
+
+LINKS [![Build Status](https://travis-ci.org/PocketBukkit/PocketBukkit.svg?branch=master)](https://travis-ci.org/PocketBukkit/PocketBukkit)
 ============
 Main PocketBukkit Website - http://PocketBukkit.net/
 
