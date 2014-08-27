@@ -9,8 +9,15 @@
 
 package net.pocketbukkit.api.event;
 
-public class Event {
+/*
+public abstract class Event {
 	public static void registerEvent(String Event) {
 		//TODO: Register Events
 	}
+}
+*/
+
+public interface Event {
+	
+	void onCalled();
 }
