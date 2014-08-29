@@ -19,15 +19,23 @@ public final class ModuleManager{
 		}
 		moduleDir.mkdirs();
 		dir = moduleDir;
+		loadAll(dir);
+		enableAll();
 	}
-	public void install(){
+	public void enableAll(){
+		for(Module module: modules.values()){
+			module.enable();
+		}
+	}
+	public void loadAll(File dir){
 		for(File file: dir.listFiles()){
 			if(file.isFile()){
 				String path = file.getAbsolutePath();
 				int length = path.length();
 				if(path.substring(length - 4).equalsIgnoreCase(".jar")){
 					try{
-						loadModule(file);
+						Module module = loadModule(file);
+						modules.put(module.getManifest().getPackage(), module);
 					}
 					catch(IOException e){
 						// TODO Auto-generated catch block

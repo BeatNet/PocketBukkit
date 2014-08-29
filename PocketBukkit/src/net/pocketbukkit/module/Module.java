@@ -4,7 +4,7 @@ import net.pocketbukkit.module.resources.ModuleResources;
 
 //import org.blockserver.Context;
 
-public class Module{ // implements Context{
+public abstract class Module{ // implements Context{
 	private ModuleManifest manifest;
 	private boolean initialized = false;
 	private boolean enabled = false;
@@ -17,7 +17,8 @@ public class Module{ // implements Context{
 		initialized = true;
 		this.manifest = manifest;
 		assetsManager = new ModuleAssetsManager(getManifest().getJar());
-		resources = new ModuleResources(getManifest().getJar()); // TODO modifiers
+		resources = new ModuleResources(getManifest().getJar());
+		onInit();
 	}
 //	@Override
 	public final boolean isEnabled(){
@@ -29,10 +30,29 @@ public class Module{ // implements Context{
 	public final ModuleManifest getManifest(){
 		return manifest;
 	}
+//	@Override
 	public ModuleResources getResources(){
 		return resources;
 	}
 	public final ModuleAssetsManager getAssetsManager(){
 		return assetsManager;
+	}
+	public final void enable(){
+		enabled = true;
+		onEnable();
+	}
+	public final void disable(){
+		enabled = false;
+		onDisable();
+	}
+	public final void finalize(){
+		onFinal();
+	}
+	protected void onInit(){}
+	protected void onEnable(){}
+	protected void onDisable(){}
+	protected void onFinal(){}
+	public void post(Runnable run, int ticks){
+		// TODO scheduler
 	}
 }

@@ -67,4 +67,7 @@ public class ModuleManifest{
 			e.printStackTrace();
 		}
 	}
+	public String getPackage(){
+		return packageName;
+	}
 }
