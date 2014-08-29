@@ -1,4 +1,4 @@
-package net.pocketbukkit.module;
+package net.pocketbukkit.module.resources;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -16,12 +16,12 @@ import org.w3c.dom.NodeList;
 
 public class ModuleResources{
 	private JarFile jar;
-	private ModuleResourceMap<String> strings = new ModuleResourceMap<String>();
-	private ModuleResourceMap<Integer> ints = new ModuleResourceMap<Integer>();
-	private ModuleResourceMap<List<Integer>> intArrays = new ModuleResourceMap<List<Integer>>();
-	private ModuleResourceMap<Double> doubles = new ModuleResourceMap<Double>();
-	private ModuleResourceMap<List<Double>> doubleArrays = new ModuleResourceMap<List<Double>>();
-	private ModuleResourceMap<Boolean> bools = new ModuleResourceMap<Boolean>();
+	private ModuleResMap<String> strings = new ModuleResMap<String>();
+	private ModuleResMap<Integer> ints = new ModuleResMap<Integer>();
+	private ModuleResMap<List<Integer>> intArrays = new ModuleResMap<List<Integer>>();
+	private ModuleResMap<Double> doubles = new ModuleResMap<Double>();
+	private ModuleResMap<List<Double>> doubleArrays = new ModuleResMap<List<Double>>();
+	private ModuleResMap<Boolean> bools = new ModuleResMap<Boolean>();
 	public ModuleResources(JarFile jar){
 		this.jar = jar;
 		load();

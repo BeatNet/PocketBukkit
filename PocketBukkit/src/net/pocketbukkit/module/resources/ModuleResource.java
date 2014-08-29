@@ -1,4 +1,4 @@
-package net.pocketbukkit.module;
+package net.pocketbukkit.module.resources;
 
 import java.util.HashMap;
 import java.util.Map;

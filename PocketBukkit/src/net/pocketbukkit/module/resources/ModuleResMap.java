@@ -1,11 +1,11 @@
-package net.pocketbukkit.module;
+package net.pocketbukkit.module.resources;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class ModuleResourceMap<T>{
+class ModuleResMap<T>{
 	private Map<String, ModuleResource<T>> map = new HashMap<String, ModuleResource<T>>();
 	public void add(String name, String file, T value){
 		String[] tokens = file.split("/");

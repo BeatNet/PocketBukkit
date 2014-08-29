@@ -1,7 +1,6 @@
 package net.pocketbukkit.module;
 
-import java.io.InputStream;
-import java.util.jar.JarFile;
+import net.pocketbukkit.module.resources.ModuleResources;
 
 import org.blockserver.Context;
 
@@ -30,16 +29,8 @@ public class Module implements Context{
 	public final ModuleManifest getManifest(){
 		return manifest;
 	}
-//	@Override
-	final InputStream getResourceFile(String name){
-		JarFile jar = getManifest().getJar();
-		try{
-			return jar.getInputStream(jar.getJarEntry("res/" + name));
-		}
-		catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
+	public ModuleResources getResources(){
+		return resources;
 	}
 	public final ModuleAssetsManager getAssetsManager(){
 		return assetsManager;
