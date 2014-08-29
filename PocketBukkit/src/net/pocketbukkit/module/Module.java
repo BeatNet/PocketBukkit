@@ -2,9 +2,9 @@ package net.pocketbukkit.module;
 
 import net.pocketbukkit.module.resources.ModuleResources;
 
-import org.blockserver.Context;
+//import org.blockserver.Context;
 
-public class Module implements Context{
+public class Module{ // implements Context{
 	private ModuleManifest manifest;
 	private boolean initialized = false;
 	private boolean enabled = false;
@@ -19,7 +19,7 @@ public class Module implements Context{
 		assetsManager = new ModuleAssetsManager(getManifest().getJar());
 		resources = new ModuleResources(getManifest().getJar()); // TODO modifiers
 	}
-	@Override
+//	@Override
 	public final boolean isEnabled(){
 		return enabled;
 	}
