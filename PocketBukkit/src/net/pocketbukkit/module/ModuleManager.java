@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import org.blockserver.Server;
+//import org.blockserver.Server;
 
 public final class ModuleManager{
 	private File dir;
@@ -49,7 +49,7 @@ public final class ModuleManager{
 		catch(Exception e){
 			stream.close();
 			jar.close();
-			Server.getInstance().getLogger().error("Failed loading module at %s. Reason: %s", file.getCanonicalPath(), e.getMessage());
+//			Server.getInstance().getLogger().error("Failed loading module at %s. Reason: %s", file.getCanonicalPath(), e.getMessage());
 			return null;
 		}
 		stream.close();
