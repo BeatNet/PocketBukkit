@@ -29,7 +29,11 @@ public class ModuleManifest{
 			}
 		}
 		name = (String) map.get("name");
-		version = (String) map.get("version");
+		Object objVersion = map.get("version");
+		if(!(objVersion instanceof String)){
+			objVersion = String.valueOf(objVersion);
+		}
+		version = (String) objVersion;
 		minAPI = (int) map.get("min-api");
 		packageName = (String) map.get("package");
 		mainClass = (String) map.get("main");
