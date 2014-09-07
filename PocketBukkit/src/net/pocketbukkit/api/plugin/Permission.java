@@ -9,10 +9,9 @@
 
 package net.pocketbukkit.api.plugin;
 
-public abstract class PluginBase {
-	//TODO: Plugin API
-
-        public abstract void onEnable();
-        public abstract void onDisable();
-      
+public enum Permission {
+	// TODO: Add more permissions
+	ACCESS_FILE_MANAGEMENT,
+	ACCESS_PLUGINS_MANAGER,
+	ACCESS_LEVELS_MANAGER;
 }
