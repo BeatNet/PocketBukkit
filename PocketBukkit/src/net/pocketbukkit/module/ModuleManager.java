@@ -8,14 +8,14 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-//import org.blockserver.Server;
+import org.blockserver.Server;
 
 public final class ModuleManager{
 	private File dir;
 	private Map<String, Module> modules = new HashMap<String, Module>();
 	public ModuleManager(File moduleDir){
 		if(moduleDir.isFile()){
-			throw new IllegalArgumentException("File passed to constructor of ModuleManager must not be a file");
+			throw new IllegalArgumentException("File object passed to constructor of ModuleManager must not be a file"); // file must not be a file :P
 		}
 		moduleDir.mkdirs();
 		dir = moduleDir;
@@ -38,7 +38,6 @@ public final class ModuleManager{
 						modules.put(module.getManifest().getPackage(), module);
 					}
 					catch(IOException e){
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -57,7 +56,7 @@ public final class ModuleManager{
 		catch(Exception e){
 			stream.close();
 			jar.close();
-//			Server.getInstance().getLogger().error("Failed loading module at %s. Reason: %s", file.getCanonicalPath(), e.getMessage());
+			Server.getInstance().getLogger().error("Failed loading module at %s. Reason: %s", file.getCanonicalPath(), e.getMessage());
 			return null;
 		}
 		stream.close();

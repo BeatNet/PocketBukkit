@@ -19,22 +19,22 @@ public final class Information {
 	/**
 	 * Returns API Software Description
 	 */
-	public static final String APIDescription = "The Minecraft PE Server API";
+	public static final String API_DESCRIPTION = "The Minecraft PE Server API";
 	
 	/**
 	 * Returns API Version (As a String)
 	 */
-	public static final String Version = "1.0.0";
+	public static final String VERSION = "1.0.0";
 	
 	/**
 	 * Returns API Version (As an Integer)
 	 */
-	public static final int VersionINT = 1;
+	public static final int VERSION_CODE = 1;
 	
 	/**
 	 * Returns API Codename
 	 */
-	public static final String CodeName = "Baby Villager";
+	public static final String CODE_NAME = "Baby Villager";
 	
 	private Information(){}
 }

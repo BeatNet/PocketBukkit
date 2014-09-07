@@ -15,6 +15,7 @@ public class ModuleManifest{
 	private String packageName, mainClass;
 	private ModuleClassLoader loader;
 	private Module mainClassObject;
+
 	@SuppressWarnings("unchecked")
 	public ModuleManifest(File file, InputStream stream, JarFile jar, ModuleManager manager) throws Exception{
 		this.jar = jar;
@@ -43,6 +44,7 @@ public class ModuleManifest{
 		loader = new ModuleClassLoader(file, manager);
 		mainClassObject = loader.validate(mainClass);
 	}
+
 	public Module getMainClassObject(){
 		return mainClassObject;
 	}
@@ -61,6 +63,7 @@ public class ModuleManifest{
 	public JarFile getJar(){
 		return jar;
 	}
+
 	@Override
 	protected void finalize(){
 		try{

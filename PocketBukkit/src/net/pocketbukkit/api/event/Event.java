@@ -17,7 +17,6 @@ public abstract class Event {
 }
 */
 
-public interface Event {
-	
-	void onCalled();
+public interface Event{
+	public void onCalled();
 }
