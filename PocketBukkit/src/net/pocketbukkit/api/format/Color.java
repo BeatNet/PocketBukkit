@@ -9,7 +9,7 @@
 
 package net.pocketbukkit.api.format;
 
-public class Color {
+public final class Color {
     public static final String FORMAT_RESET = "\u001B[0m";
     public static final String FORMAT_BLACK = "\u001B[30m";
     public static final String FORMAT_RED = "\u001B[31m";
@@ -19,4 +19,6 @@ public class Color {
     public static final String FORMAT_PURPLE = "\u001B[35m";
     public static final String FORMAT_CYAN = "\u001B[36m";
     public static final String FORMAT_WHITE = "\u001B[37m";
+    
+    private Color{}
 }
