@@ -20,5 +20,5 @@ public final class Color {
     public static final String FORMAT_CYAN = "\u001B[36m";
     public static final String FORMAT_WHITE = "\u001B[37m";
     
-    private Color{}
+    private Color(){}
 }
