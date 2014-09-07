@@ -7,8 +7,10 @@
  *
  */
 
-package net.pocketbukkit.api.server;
+package net.pocketbukkit;
 
-public class Server {
-	//TODO: Server API
+import org.blockserver.api.API;
+
+public class PocketBukkitAPI extends API {
+	
 }

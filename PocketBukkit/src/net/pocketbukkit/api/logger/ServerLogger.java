@@ -9,65 +9,35 @@
 
 package net.pocketbukkit.api.logger;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 //import net.pocketbukkit.format.Color;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ServerLogger{
-	public static void info(String string) {
-		System.out.println("[INFO] " + string);
-		try {
-			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
-			log.write("[INFO] " + string + "\n");
-			log.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public static Calendar cal = Calendar.getInstance();
+	public static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	
+	public static void info(String message) {
+		System.out.println(sdf.format(cal.getTime()) + " [INFO] " + message);
 	}
 	
-	public static void warning(String string) {
-		System.out.println("[WARNING] " + string);
-		try {
-			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
-			log.write("[WARNING] " + string + "\n");
-			log.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public static void debug(String message) {
+		System.out.println(sdf.format(cal.getTime()) + " [INFO] " + message);
 	}
 	
-	public static void error(String string) {
-		System.out.println("[ERROR] " + string);
-		try {
-			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
-			log.write("[ERROR] " + string + "\n");
-			log.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public static void warning(String message) {
+		System.out.println(sdf.format(cal.getTime()) + " [INFO] " + message);
 	}
 	
-	public static void debug(String string) {
-		System.out.println("[DEBUG] " +  string);
-		try {
-			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
-			log.write("[DEBUG] " + string + "\n");
-			log.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public static void warn(String message) {
+		System.out.println(sdf.format(cal.getTime()) + " [INFO] " + message);
 	}
 	
-	public static void fatal(String string) {
-		System.out.println("[FATAL] " + string);
-		try {
-			BufferedWriter log = new BufferedWriter(new FileWriter("server.log"));
-			log.write("[FATAL] " + string + "\n");
-			log.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.exit(1);
+	public static void error(String message) {
+		System.out.println(sdf.format(cal.getTime()) + " [INFO] " + message);
+	}
+	
+	public static void fatal(String message) {
+		System.out.println(sdf.format(cal.getTime()) + " [INFO] " + message);
 	}
 }

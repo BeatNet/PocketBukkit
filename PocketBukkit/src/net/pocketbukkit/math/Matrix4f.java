@@ -32,6 +32,7 @@ public float[] matrix = new float[4 * 4];
 		return result;
 	}
 	
+	@SuppressWarnings("static-access")
 	public static Matrix4f tanslate(Vector3f vector) {
 		Matrix4f result = identity();
 		result.matrix[0 + 3 * 4] = vector.vectorx;

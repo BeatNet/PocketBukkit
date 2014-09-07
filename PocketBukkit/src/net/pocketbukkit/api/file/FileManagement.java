@@ -15,42 +15,68 @@ import java.io.IOException;
 import net.pocketbukkit.api.logger.ServerLogger;
 
 public class FileManagement {
-	public static void createFile(String Folder, String File) {
-		File file = new File(Folder + "/" + File);
-		if(file.exists()) {
-			if(file.isFile()) {
+	
+	/**
+	 * Creates a file with name "file" in folder "folder"<br></br>
+	 * 
+	 * Parameters:</br>
+	 *  + folder - Folder in which to create file</br>
+	 *  + file - Name of the file created (including extension)
+	 */
+	public static void createFile(String folder, String file) {
+		File f = new File(folder + "/" + file);
+		if(f.exists()) {
+			if(f.isFile()) {
 				return;
 			} else {
 				try {
-					file.createNewFile();
+					f.createNewFile();
 				} catch (IOException e) {
-					ServerLogger.error("There was an error while creating file " + File + " in directory " + Folder + ":");
+					ServerLogger.error("There was an error while creating file " + file + " in directory " + folder + ":");
 					e.printStackTrace();
 				}
 			}
 		} else {
 			try {
-				file.createNewFile();
+				f.createNewFile();
 			} catch (IOException e) {
-				ServerLogger.error("There was an error while creating file " + File + " in directory " + Folder + ":");
+				ServerLogger.error("There was an error while creating file " + file + " in directory " + folder + ":");
 				e.printStackTrace();
 			}
 		}
 	}
 	
-	public static void createFolder(String Folder) {
-		File file = new File(Folder);
+	
+	/**
+	 * Creates a folder with the name of "folder"</br></br>
+	 * 
+	 * Parameters:</br>
+	 *  + folder - Name of the folder created (Including location if needed)
+	 */
+	public static void createFolder(String folder) {
+		File file = new File(folder);
 		if(!file.exists()) {
 			file.mkdir();
 		} else {
-			ServerLogger.error("The folder " + Folder + " already exists!");
+			ServerLogger.error("The folder " + folder + " already exists!");
 		}
 	}
 	
-	public static boolean checkFileExists(String Folder, String File) {
-		File file = new File(Folder + "/" + File);
-		if(file.exists()) {
-			if(file.isFile()) {
+	
+	/**
+	 * Returns boolean</br></br>
+	 * 
+	 * If true - File exists</br>
+	 * If false - File does not exist</br></br>
+	 * 
+	 * Parameters: </br>
+	 * + folder - Location of the file</br>
+	 * + file - Name of the file to look for (Including extensions)
+	 */
+	public static boolean checkFileExists(String folder, String file) {
+		File f = new File(folder + "/" + file);
+		if(f.exists()) {
+			if(f.isFile()) {
 				return true;
 			}
 		} else {
@@ -59,8 +85,18 @@ public class FileManagement {
 		return false;
 	}
 	
-	public static boolean checkFolderExists(String Folder) {
-		File file = new File(Folder);
+	
+	/**
+	 * Returns boolean</br></br>
+	 * 
+	 * If true - File exists</br>
+	 * If false - File does not exist</br></br>
+	 * 
+	 * Parameters: </br>
+	 *  + folder - Name of the folder to check (Including location if needed)
+	 */
+	public static boolean checkFolderExists(String folder) {
+		File file = new File(folder);
 		if(file.exists()) {
 			if(file.isDirectory()) {
 				return true;
@@ -71,8 +107,17 @@ public class FileManagement {
 		return false;
 	}
 	
-	public static boolean checkDirectoryExists(String Folder) {
-		File file = new File(Folder);
+	/**
+	 * Returns boolean</br></br>
+	 * 
+	 * If true - File exists</br>
+	 * If false - File does not exist</br></br>
+	 * 
+	 * Parameters: </br>
+	 *  + folder - Name of the folder to check (Including location if needed)
+	 */
+	public static boolean checkDirectoryExists(String folder) {
+		File file = new File(folder);
 		if(file.exists()) {
 			if(file.isDirectory()) {
 				return true;
