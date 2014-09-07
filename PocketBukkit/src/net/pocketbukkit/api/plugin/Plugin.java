@@ -9,9 +9,17 @@
 
 package net.pocketbukkit.api.plugin;
 
-public abstract class PluginBase {
-	//TODO: Plugin API
+import java.util.Set;
 
+public abstract class Plugin {
+	//TODO: Plugin API
+	
+	private Set<Permission> permissions;
+	
+	protected Plugin(Set<Permission> permissions){
+		this.permissions = permissions;
+	}
+	
         public abstract void onEnable();
         public abstract void onDisable();
       
