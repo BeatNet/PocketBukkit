@@ -9,8 +9,8 @@
 
 package net.pocketbukkit;
 
-import org.blockserver.api.API;
+//import org.blockserver.api.API;
 
-public class PocketBukkitAPI extends API {
+public class PocketBukkitAPI { //extends API {
 	
 }

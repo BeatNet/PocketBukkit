@@ -1,4 +1,4 @@
-package net.pocketbukkit.math;
+package net.pocketbukkit.api.math;
 
 public class Vector3f {
 public static float vectorx;

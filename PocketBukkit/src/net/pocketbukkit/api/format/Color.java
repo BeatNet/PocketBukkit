@@ -7,7 +7,7 @@
  *
  */
 
-package net.pocketbukkit.format;
+package net.pocketbukkit.api.format;
 
 public class Color {
     public static final String FORMAT_RESET = "\u001B[0m";

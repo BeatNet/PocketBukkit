@@ -1,4 +1,4 @@
-package net.pocketbukkit.math;
+package net.pocketbukkit.api.math;
 
 import static java.lang.Math.*;
 
