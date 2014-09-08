@@ -15,7 +15,6 @@ import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
 
 public class YAML {
-	
 	/**
 	 * Reads a YAML file</br></br>
 	 * 
