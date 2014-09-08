@@ -2,9 +2,13 @@ language: java
 script: ant compile
 before_script:
   - cd ..
+  - git clone https://github.com/BlockServerProject/BSF-Lib.git IO-Lib
+  - cd IO-Lib
+  - ant expjarparent
+  - cd ..
   - git clone https://github.com/BlockServerProject/BlockServer.git BlockServer
   - cd BlockServer
-  - dir
   - ant extjar
   - cd ..
+  - dir
   - cd $TRAVIS_BUILD_DIR
