@@ -4,6 +4,7 @@ before_script:
   - cd ..
   - git clone https://github.com/BlockServerProject/BlockServer.git BlockServer
   - cd BlockServer
+  - dir
   - ant extjar
   - cd ..
   - cd $TRAVIS_BUILD_DIR
