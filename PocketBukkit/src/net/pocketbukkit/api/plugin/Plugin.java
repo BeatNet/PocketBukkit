@@ -13,14 +13,16 @@ import java.util.Set;
 
 public abstract class Plugin {
 	//TODO: Plugin API
-	
 	private Set<Permission> permissions;
-	
+
 	protected Plugin(Set<Permission> permissions){
 		this.permissions = permissions;
 	}
-	
-        public abstract void onEnable();
-        public abstract void onDisable();
-      
+
+	public abstract void onEnable();
+	public abstract void onDisable();
+
+	public Set<Permission> getPermissions(){
+		return permissions;
+	}
 }
