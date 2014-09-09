@@ -28,7 +28,7 @@
 		<copy file="../BlockServer.jar" tofile="${lib.dir}/BlockServer.jar"/>
 		<copy file="../IO-Lib.jar" tofile="${lib.dir}/IO-Lib.jar"/>
 		<mkdir dir="${classes.dir}"/>
-		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" includeAntRuntime="false"/>
 	</target>
 	<target name="doc" depends="compile" description="generate documentation">
 		<javadoc sourcepath="${src.dir}" destdir="${doc.dir}"/>
