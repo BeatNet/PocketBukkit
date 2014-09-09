@@ -26,6 +26,7 @@
 	</target>
 	<target name="compile">
 		<copy file="../BlockServer.jar" tofile="${lib.dir}/BlockServer.jar"/>
+		<copy file="../IO-Lib.jar" tofile="${lib.dir}/IO-Lib.jar"/>
 		<mkdir dir="${classes.dir}"/>
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
 	</target>
