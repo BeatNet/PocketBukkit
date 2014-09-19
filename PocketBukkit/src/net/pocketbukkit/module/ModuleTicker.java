@@ -1,5 +1,6 @@
 package net.pocketbukkit.module;
 
+import org.blockserver.Server;
 import org.blockserver.scheduler.Task;
 
 public class ModuleTicker extends Task{
@@ -10,7 +11,7 @@ public class ModuleTicker extends Task{
 	}
 
 	@Override
-	public void onRun(long ticks){
+	public void onRun(Server server, long ticks){
 		module.tick();
 		if(!module.isEnabled()){
 			setRepeatTimes(0);
