@@ -44,7 +44,10 @@ public abstract class Module implements Context{
 	public final ModuleManifest getManifest(){
 		return manifest;
 	}
-//	@Override
+	public Server getServer(){
+		return server;
+	}
+	//	@Override
 	public final ModuleResources getResources(){
 		return resources;
 	}

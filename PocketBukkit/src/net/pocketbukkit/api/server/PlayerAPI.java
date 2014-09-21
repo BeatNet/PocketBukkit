@@ -17,7 +17,7 @@ public class PlayerAPI {
 	public static Player player = new Player(null, null, 0, (short) 0, 0);
 	
 	public static void sendChat(String message) {
-		player.sendMessage(message);
+		player.sendChat(message);
 	}
 	
 	public static String getName() {

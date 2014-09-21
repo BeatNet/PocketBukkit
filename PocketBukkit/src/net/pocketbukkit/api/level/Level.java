@@ -17,7 +17,7 @@ public class Level {
 	
 	public Level() {
 		try {
-			server = new Server(null, null, (short) 0, 0, null, null, null, null, null, null);
+			server = Server.getInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
