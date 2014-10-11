@@ -26,7 +26,8 @@ public class ModuleLauncher{
 		File here = new File(".");
 		File worlds = new File(here, "worlds");
 		File players = new File(here, "players");
-		server = new Server(name, ip, port, maxPlayers, version, defaultLevel,
-				genSet, chatMgrType, dbType, worlds, players);
+//		server = new Server(name, ip, port, maxPlayers, version, defaultLevel,
+//				genSet, chatMgrType, dbType, worlds, players);
+		// these two lines have been commented out since currently it is very possible that the constructor changes.
 	}
 }

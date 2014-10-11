@@ -7,8 +7,12 @@
  *
  */
 
-package net.pocketbukkit.api.command;
+package net.pocketbukkit;
 
-public abstract class Command {
-	//TODO: Commands
+import org.blockserver.BlockServer;
+
+public class PocketBukkit{
+	public static void main(String[] args){
+		BlockServer.main(args);
+	}
 }
