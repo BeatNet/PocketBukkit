@@ -9,8 +9,7 @@
 
 package net.pocketbukkit.api;
 
-public final class Information {
-	
+public final class Information{
 	/**
 	 * Returns API Software
 	 */
@@ -35,6 +34,4 @@ public final class Information {
 	 * Returns API Codename
 	 */
 	public static final String CODE_NAME = "Baby Villager";
-	
-	private Information(){}
 }
