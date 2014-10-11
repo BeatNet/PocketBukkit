@@ -9,10 +9,23 @@
 
 package net.pocketbukkit;
 
-import org.blockserver.BlockServer;
+import java.io.File;
+
+import net.pocketbukkit.addon.AddonManager;
+import net.pocketbukkit.api.PluginManager;
+import net.pocketbukkit.module.ModuleManager;
+
+import org.blockserver.Server;
 
 public class PocketBukkit{
-	public static void main(String[] args){
-		BlockServer.main(args);
+	public static PluginManager plugins;
+	public static ModuleManager modules;
+	public static AddonManager addons;
+
+	public static void main(Server server){
+		File base = server.getDataDir();
+		plugins = new PluginManager(server, new File(base, "plugins"));
+		modules = new ModuleManager(server, new File(base, "modules"));
+		addons = new AddonManager(server, new File(base, "addons"));
 	}
 }

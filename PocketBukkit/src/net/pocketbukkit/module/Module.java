@@ -13,6 +13,7 @@ import org.blockserver.Server;
 
 public abstract class Module implements Context{
 	private Server server;
+	private ModuleManager manager;
 	private ModuleManifest manifest;
 	private boolean initialized = false;
 	private boolean enabled = false;
@@ -55,7 +56,7 @@ public abstract class Module implements Context{
 		return assetsManager;
 	}
 	public File getDir(){
-		File file = new File(server.getPluginsDir(), getManifest().getName());
+		File file = new File(manager.getModulesDir(), getManifest().getName());
 		file.mkdirs();
 		return file;
 	}

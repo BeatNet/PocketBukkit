@@ -13,7 +13,7 @@ import org.blockserver.Server;
 public final class ModuleManager{
 	private File dir;
 	private Map<String, Module> modules = new HashMap<String, Module>();
-	public ModuleManager(File moduleDir){
+	public ModuleManager(Server server, File moduleDir){
 		if(moduleDir.isFile()){
 			throw new IllegalArgumentException("File object passed to constructor of ModuleManager must not be a file"); // file must not be a file :P
 		}
@@ -78,5 +78,8 @@ public final class ModuleManager{
 			return result;
 		}
 		return null;
+	}
+	public File getModulesDir(){
+		return dir;
 	}
 }

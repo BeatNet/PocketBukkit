@@ -9,7 +9,7 @@
 
 package net.pocketbukkit.api;
 
-public final class Information{
+public interface Information{
 	/**
 	 * Returns API Software
 	 */
