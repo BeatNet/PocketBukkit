@@ -1,7 +1,5 @@
 package net.pocketbukkit.addon;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +7,6 @@ import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Script;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
-import org.mozilla.javascript.annotations.JSFunction;
 
 public class Addon{
 	private AddonManager manager;
