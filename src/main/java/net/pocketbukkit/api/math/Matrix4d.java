@@ -4,7 +4,7 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.toRadians;
 
-import org.blockserver.math.Vector3d;
+//import org.blockserver.math.Vector3d;
 
 public class Matrix4d {
 	public double[] matrix = new double[4 * 4];
@@ -35,14 +35,14 @@ public class Matrix4d {
 		}
 		return result;
 	}
-
+	/*
 	public static Matrix4d translate(Vector3d vector) {
 		Matrix4d result = identity();
 		result.matrix[0 + 3 * 4] = vector.getX();
 		result.matrix[1 + 3 * 4] = vector.getY();
 		result.matrix[2 + 3 * 4] = vector.getZ();
 		return result;
-	}
+	}*/
 	
 	public static Matrix4d rotate(double angle) {
 		Matrix4d result = identity();

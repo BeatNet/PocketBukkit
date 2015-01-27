@@ -8,10 +8,10 @@ import java.util.Map;
 
 import net.pocketbukkit.module.resources.ModuleResources;
 
-import org.blockserver.Context;
+//import org.blockserver.Context;
 import org.blockserver.Server;
 
-public abstract class Module implements Context{
+public abstract class Module{ //implements Context{
 	private Server server;
 	private ModuleManager manager;
 	private ModuleManifest manifest;
@@ -85,6 +85,7 @@ public abstract class Module implements Context{
 	public void runOnMainThread(Runnable run){
 		runnableQueue.add(run);
 	}
+	/*
 	public void post(Runnable run, int delay){
 		Long ticks = server.getScheduler().getCurrentTick() + delay;
 		if(!postQueue.containsKey(ticks)){
@@ -106,4 +107,5 @@ public abstract class Module implements Context{
 		onTick();
 	}
 	protected void onTick(){}
+	*/
 }

@@ -10,9 +10,10 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.blockserver.Server;
+/*
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ScriptableObject;
-
+*/
 public class AddonManager{
 	private Server server;
 	private File addonsDir;
@@ -48,7 +49,7 @@ public class AddonManager{
 	}
 	public void loadAddon(String src, String sourceName) throws Exception{
 		Addon addon = new Addon(this, src);
-		Context ctx = null;
+		//Context ctx = null;
 //		if(addon.getBind() != null){
 //			Addon bind = addons.get(addon.getBind());
 //			if(bind == null){
@@ -59,7 +60,7 @@ public class AddonManager{
 //		else{
 //			
 //		}
-		addon.init(ctx, sourceName);
+		//addon.init(ctx, sourceName);
 		addons.put(addon.getName(), addon);
 	}
 	public static String getFileContents(File file) throws IOException{
@@ -81,6 +82,6 @@ public class AddonManager{
 	@Override
 	protected void finalize() throws Throwable{
 		super.finalize();
-		Context.exit();
+		//Context.exit();
 	}
 }

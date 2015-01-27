@@ -3,10 +3,12 @@ package net.pocketbukkit.addon;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Script;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
+*/
 
 public class Addon{
 	private AddonManager manager;
@@ -17,7 +19,7 @@ public class Addon{
 	private String[] authors = new String[0];
 	private List<String> depends = new ArrayList<String>();
 	private String bind = null;
-	private Context ctx = null;
+	//private Context ctx = null;
 
 	public Addon(AddonManager mgr, String src) throws Exception{
 		manager = mgr;
@@ -78,7 +80,7 @@ public class Addon{
 			manager.getServer().getLogger().warning("Unknown addon property: %s (source `%s`)", key, line);
 		}
 	}
-
+	/*
 	public void init(Context ctx, String sourceName){
 //		if(ctx == null && bind != null){
 //			throw new IllegalArgumentException("Context must not be null because addon needs to bind");
@@ -88,6 +90,7 @@ public class Addon{
 		ScriptableObject scriptable = (ScriptableObject) scope;
 		// TODO
 	}
+	*/
 
 	public String getName(){
 		return name;
@@ -104,9 +107,11 @@ public class Addon{
 	public String[] getDepends(){
 		return (String[]) depends.toArray();
 	}
+	/*
 	public Context getContext(){
 		return ctx;
 	}
+	*/
 	public AddonManager getManager(){
 		return manager;
 	}

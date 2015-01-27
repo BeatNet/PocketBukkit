@@ -13,12 +13,14 @@ import org.blockserver.Server;
 public final class ModuleManager{
 	private File dir;
 	private Map<String, Module> modules = new HashMap<String, Module>();
+	private Server server;
 	public ModuleManager(Server server, File moduleDir){
 		if(moduleDir.isFile()){
 			throw new IllegalArgumentException("File object passed to constructor of ModuleManager must not be a file"); // file must not be a file :P
 		}
 		moduleDir.mkdirs();
 		dir = moduleDir;
+		this.server = server;
 		loadAll(dir);
 		enableAll();
 	}
@@ -56,7 +58,7 @@ public final class ModuleManager{
 		catch(Exception e){
 			stream.close();
 			jar.close();
-			Server.getInstance().getLogger().error("Failed loading module at %s. Reason: %s", file.getCanonicalPath(), e.getMessage());
+			server.getLogger().error("Failed loading module at %s. Reason: %s", file.getCanonicalPath(), e.getMessage());
 			return null;
 		}
 		stream.close();

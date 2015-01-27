@@ -1,31 +1,36 @@
-/*
- *  ____            _        _   ___  _   _  _     _     _    _
- * |  _ \ ___   ___| | _____| |_| _ \| | | || | __| | __|_| _| |_
- * | |_) / _ \ / __| |/ / _ \ __|  _/| | | || |/ /| |/ / _ |__ __|
- * |  __/ (_) | (__|   <  __/ |_| _ \| |_| ||   < |   < | |  | |
- * |_|   \___/ \___|_|\_\___|\__|___/\_____/|_|\_\|_|\_\|_|  |_|
- *
- */
-
 package net.pocketbukkit;
+
+import net.pocketbukkit.api.Information;
+import org.blockserver.Server;
+import org.blockserver.ServerBuilder;
+import org.blockserver.player.DummyPlayerDatabase;
+import org.blockserver.ui.Log4j2ConsoleOut;
 
 import java.io.File;
 
-import net.pocketbukkit.addon.AddonManager;
-import net.pocketbukkit.api.PluginManager;
-import net.pocketbukkit.module.ModuleManager;
+/**
+ * Created by jython234 on 1/26/2015.
+ */
+public class PocketBukkit {
 
-import org.blockserver.Server;
+    public static void main(String[] args){
+        ServerBuilder builder = new ServerBuilder();
+        //TODO: Actually load this stuff.
+        builder.setServerName("Hi");
+        builder.setPort(19132);
+        File includePath = new File("data");
+        includePath.mkdirs();
+        builder.setIncludePath(includePath);
+        builder.setConsoleOut(new Log4j2ConsoleOut());
+        builder.setPlayerDatabase(new DummyPlayerDatabase());
 
-public class PocketBukkit{
-	public static PluginManager plugins;
-	public static ModuleManager modules;
-	public static AddonManager addons;
+        System.out.println(Information.API + ", " + Information.API_DESCRIPTION);
+        System.out.println("Version "+Information.VERSION+"(V "+Information.VERSION_CODE+") Name: "+Information.CODE_NAME);
+        System.out.println("Starting server...");
 
-	public static void main(Server server){
-		File base = server.getDataDir();
-		plugins = new PluginManager(server, new File(base, "plugins"));
-		modules = new ModuleManager(server, new File(base, "modules"));
-		addons = new AddonManager(server, new File(base, "addons"));
-	}
+        Server server = builder.build();
+        server.setAPI(new PocketBukkitAPI(server));
+
+        server.start();
+    }
 }
