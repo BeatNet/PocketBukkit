@@ -10,7 +10,7 @@ import org.blockserver.api.PluginManager;
 public class PBPluginManager implements PluginManager {
 	private Server server;
 
-	public PBPluginManager(Server server, File pluginsDir){
+	public PBPluginManager(Server server){//, File pluginsDir){
 		// TODO Auto-generated constructor stub
 	}
 

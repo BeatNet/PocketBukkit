@@ -1,6 +1,7 @@
 package net.pocketbukkit;
 
 import net.pocketbukkit.api.Information;
+import net.pocketbukkit.api.PBPluginManager;
 import org.blockserver.Server;
 import org.blockserver.ServerBuilder;
 import org.blockserver.player.DummyPlayerDatabase;
@@ -8,9 +9,6 @@ import org.blockserver.ui.Log4j2ConsoleOut;
 
 import java.io.File;
 
-/**
- * Created by jython234 on 1/26/2015.
- */
 public class PocketBukkit {
 
     public static void main(String[] args){
@@ -29,7 +27,7 @@ public class PocketBukkit {
         System.out.println("Starting server...");
 
         Server server = builder.build();
-        server.setAPI(new PocketBukkitAPI(server));
+        server.setAPI(new PocketBukkitAPI(server, new PBPluginManager(server)));
 
         server.start();
     }
