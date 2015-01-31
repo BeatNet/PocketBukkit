@@ -3,6 +3,7 @@ package net.pocketbukkit.api;
 import java.io.File;
 import java.util.ArrayList;
 
+import net.pocketbukkit.PocketBukkit;
 import org.blockserver.Server;
 import org.blockserver.api.Plugin;
 import org.blockserver.api.PluginManager;
@@ -10,7 +11,7 @@ import org.blockserver.api.PluginManager;
 public class PBPluginManager implements PluginManager {
 	private Server server;
 
-	public PBPluginManager(Server server){//, File pluginsDir){
+	public PBPluginManager(PocketBukkit pocketBukkit){//, File pluginsDir){
 		// TODO Auto-generated constructor stub
 	}
 

@@ -12,11 +12,11 @@ import org.blockserver.player.Player;
  * The PocketBukkit API
  */
 public class PocketBukkitAPI implements API{
-    private Server server;
+    private PocketBukkit pb;
     private PBPluginManager manager;
 
-    public PocketBukkitAPI(Server server, PBPluginManager manager){
-        this.server = server;
+    public PocketBukkitAPI(PocketBukkit pb, PBPluginManager manager){
+        this.pb = pb;
         this.manager = manager;
     }
 
@@ -45,6 +45,6 @@ public class PocketBukkitAPI implements API{
     }
 
     public Server getServer(){
-        return server;
+        return pb.server;
     }
 }
