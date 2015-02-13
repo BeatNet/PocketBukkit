@@ -1,9 +1,11 @@
 package net.pocketbukkit;
 
 import net.pocketbukkit.api.Information;
+import net.pocketbukkit.api.PBPlugin;
 import net.pocketbukkit.api.PBPluginManager;
 import org.blockserver.Server;
 import org.blockserver.ServerBuilder;
+import org.blockserver.api.Plugin;
 import org.blockserver.player.DummyPlayerDatabase;
 import org.blockserver.ui.Log4j2ConsoleOut;
 import org.yaml.snakeyaml.Yaml;
@@ -21,8 +23,10 @@ public class PocketBukkit implements Runnable{
     private String includePath;
     private String serverName;
     private int serverPort;
+    private String modulePath;
 
     private PocketBukkitAPI api;
+    private PBPluginManager pluginManager;
     protected Server server;
 
     public static void main(String[] args){
@@ -43,7 +47,8 @@ public class PocketBukkit implements Runnable{
             logger.trace("IOException: "+e.getMessage());
             System.exit(1);
         }
-        api = new PocketBukkitAPI(this, new PBPluginManager(this));
+        pluginManager = new PBPluginManager(this);
+        api = new PocketBukkitAPI(this, pluginManager);
 
         ServerBuilder builder = new ServerBuilder();
         builder.setServerName(serverName);
@@ -56,9 +61,28 @@ public class PocketBukkit implements Runnable{
         builder.setPlayerDatabase(new DummyPlayerDatabase());
         builder.setConsoleOut(serverLogger);
 
+        File mods = new File(modulePath);
+        mods.mkdirs();
+        builder.setModulePath(mods);
+
         logger.info("Starting server...");
         server = builder.build();
+        loadPlugins();
+        server.addShutdownFunction(new Runnable() {
+            @Override
+            public void run() {
+                for(Plugin plugin: pluginManager.getPlugins()){
+                    if(plugin.isEnabled()){
+                        pluginManager.disablePlugin(plugin);
+                    }
+                }
+            }
+        });
         server.start();
+    }
+
+    public Log4j2ConsoleOut getLogger(){
+        return logger;
     }
 
     private void loadData() throws IOException {
@@ -79,9 +103,21 @@ public class PocketBukkit implements Runnable{
         }
 
         includePath = (String) map.get("IncludePath");
+        modulePath = (String) map.get("ModulePath");
 
         logger.info("Loaded data!");
 
+    }
+
+    private void loadPlugins(){
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                pluginManager.loadPlugins();
+            }
+        });
+        t.setName("PluginLoader");
+        t.start();
     }
 
     private void generateNewConfig(File file) throws IOException {
@@ -99,6 +135,7 @@ public class PocketBukkit implements Runnable{
         writer.write("ServerName: "+Information.API+" - "+Information.API_DESCRIPTION+"\n");
         writer.write("ServerPort: 19132\n");
         writer.write("IncludePath: data\n");
+        writer.write("ModulePath: modules\n");
         writer.close();
     }
 }
