@@ -6,7 +6,7 @@ public class LoggerWrapper extends Logger{
 	private org.blockserver.ui.Logger logger;
 
 	public LoggerWrapper(org.blockserver.ui.Logger logger){
-		super("Logger", "");
+		super("Logger", null);
 		this.logger = logger;
 	}
 

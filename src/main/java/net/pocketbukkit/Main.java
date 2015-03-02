@@ -47,12 +47,18 @@ public class Main{
 				levelToThrowExOnUnsupported = parseUnsupportedLevel(args[++i]);
 			}
 		}
+        File moduleDir = new File("modules");
+        File includeDir = new File("include");
+
+        moduleDir.mkdirs();
+        includeDir.mkdirs();
+
 		ServerBuilder builder = new ServerBuilder()
-				.setModulePath(new File("modules"))
+				.setModulePath(moduleDir)
 				.setServerName("PocketBukkit")
 				.setPlayerDatabase(new DummyPlayerDatabase())
 				.setConsoleOut(new Log4j2ConsoleOut("PB-BlockServer"))
-				.setIncludePath(new File("include"))
+				.setIncludePath(includeDir)
 				.setPort(19132)
 				.setAddress(InetAddress.getByName("localhost"));
 		Server server = builder.build();
