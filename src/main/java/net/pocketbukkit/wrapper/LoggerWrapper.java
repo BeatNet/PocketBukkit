@@ -2,9 +2,6 @@ package net.pocketbukkit.wrapper;
 
 import java.util.logging.Logger;
 
-/**
- * Created by jython234 on 2/22/2015.
- */
 public class LoggerWrapper extends Logger{
     private org.blockserver.ui.Logger logger;
 

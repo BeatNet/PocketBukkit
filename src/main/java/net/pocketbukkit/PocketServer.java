@@ -27,9 +27,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.*;
 
-/**
- * Created by jython234 on 2/22/2015.
- */
 public class PocketServer implements org.bukkit.Server{
     private Server server;
     private Logger logger;

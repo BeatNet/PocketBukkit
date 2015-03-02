@@ -9,10 +9,7 @@ import java.io.File;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/**
- * Created by jython234 on 2/22/2015.
- */
-public class Main {
+public class Main{
     public final static String PB_VERSION = "v1.0-SNAPSHOT - (Baby Villager)";
     public final static String BUKKIT_VERSION = "1.8-R0.1-SNAPSHOT";
 
