@@ -1,2 +1,2 @@
-Language: Java
-Script: mvn test
+language: java
+script: mvn test
