@@ -1,5 +1,6 @@
 package net.pocketbukkit;
 
+import net.pocketbukkit.bukkitbridge.PocketServer;
 import org.blockserver.Server;
 import org.blockserver.ServerBuilder;
 import org.blockserver.player.DummyPlayerDatabase;
@@ -10,22 +11,70 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Main{
-    public final static String PB_VERSION = "v1.0-SNAPSHOT - (Baby Villager)";
-    public final static String BUKKIT_VERSION = "1.8-R0.1-SNAPSHOT";
+	public final static String PB_VERSION = "v1.0-SNAPSHOT - (Baby Villager)";
+	public final static String BUKKIT_VERSION = "1.8-R0.1-SNAPSHOT";
 
-    public static void main(String[] args) throws UnknownHostException {
-        ServerBuilder builder = new ServerBuilder();
-        builder.setModulePath(new File("modules"));
-        builder.setServerName("PocketBukkit");
-        builder.setPlayerDatabase(new DummyPlayerDatabase());
-        builder.setConsoleOut(new Log4j2ConsoleOut("PB-BlockServer"));
-        builder.setIncludePath(new File("include"));
-        builder.setPort(19132);
-        builder.setAddress(InetAddress.getByName("localhost"));
+	/**
+	 * This is the unsupported level when it would lead to
+	 * {@link java.lang.NullPointerException}s being thrown;
+	 * frequently seen from getters that return {@code null}.
+	 */
+	public final static int UNSUPPORTED_LEVEL_NULL = 5;
+	/**
+	 * This is the unsupported level when the method returns an unexpected value,
+	 * or not always the value expected (such as a placeholder value, or a similar value).
+	 * Values returned by methods that
+	 */
+	public final static int UNSUPPORTED_LEVEL_INVALID_VALUE = 8;
+	/**
+	 * This is the unsupported level when the call to the function does nothing;
+	 * frequently seen from empty setters.
+	 */
+	public final static int UNSUPPORTED_LEVEL_EMPTY_CALL = 10;
+	/**
+	 * This is the same as {@code UNSUPPORTED_LEVEL_EMPTY_CALL} except that the
+	 * implementing API function declaration provides another way (such as returning
+	 * {@code false}) to let the calling context know that the call has been rejected.
+	 */
+	public final static int UNSUPPORTED_LEVEL_EMPTY_CALL_ACKNOWLEDGED = 12;
 
-        Server server = builder.build();
-        PocketServer impl = new PocketServer(server);
-        impl.getLogger().info("Hey there");
-        server.start();
-    }
+	private static int levelToThrowExOnUnsupported = UNSUPPORTED_LEVEL_NULL;
+
+	public static void main(String[] args) throws UnknownHostException{
+		for(int i = 0; i < args.length; i++){
+			String arg = args[i];
+			if(arg.equalsIgnoreCase("unsupportedEx")){
+				levelToThrowExOnUnsupported = parseUnsupportedLevel(args[++i]);
+			}
+		}
+		ServerBuilder builder = new ServerBuilder()
+				.setModulePath(new File("modules"))
+				.setServerName("PocketBukkit")
+				.setPlayerDatabase(new DummyPlayerDatabase())
+				.setConsoleOut(new Log4j2ConsoleOut("PB-BlockServer"))
+				.setIncludePath(new File("include"))
+				.setPort(19132)
+				.setAddress(InetAddress.getByName("localhost"));
+		Server server = builder.build();
+		PocketServer impl = new PocketServer(server);
+		impl.getLogger().info("Hey there");
+		server.start();
+	}
+	public static boolean isThrowExOnUnsupported(int level){
+		return level <= levelToThrowExOnUnsupported;
+	}
+	public static void onUnsupported(int level) throws UnsupportedOperationException{
+		if(isThrowExOnUnsupported(level)){
+			throw new UnsupportedOperationException();
+		}
+	}
+	public static int parseUnsupportedLevel(String string){
+		if(string.equalsIgnoreCase("null")){
+			return 5;
+		}
+		if(string.equalsIgnoreCase("empty")){
+			return 10;
+		}
+		return 0;
+	}
 }
