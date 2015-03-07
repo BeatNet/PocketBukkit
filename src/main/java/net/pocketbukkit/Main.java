@@ -1,6 +1,6 @@
 package net.pocketbukkit;
 
-import net.pocketbukkit.bukkitbridge.PocketServer;
+import net.pocketbukkit.bukkit.bridge.PocketServer;
 import org.blockserver.Server;
 import org.blockserver.ServerBuilder;
 import org.blockserver.player.DummyPlayerDatabase;

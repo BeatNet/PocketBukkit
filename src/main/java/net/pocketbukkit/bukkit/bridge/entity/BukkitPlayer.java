@@ -1,10 +1,10 @@
-package net.pocketbukkit.bukkitbridge.entity;
+package net.pocketbukkit.bukkit.bridge.entity;
 
 import net.pocketbukkit.Main;
 import static net.pocketbukkit.Main.*;
 
 import net.pocketbukkit.Unsupported;
-import net.pocketbukkit.bukkitbridge.PocketServer;
+import net.pocketbukkit.bukkit.bridge.PocketServer;
 import org.blockserver.net.internal.request.ChatRequest;
 import org.bukkit.Achievement;
 import org.bukkit.Effect;

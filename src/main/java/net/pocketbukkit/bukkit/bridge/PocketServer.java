@@ -1,9 +1,9 @@
-package net.pocketbukkit.bukkitbridge;
+package net.pocketbukkit.bukkit.bridge;
 
 import com.avaje.ebean.config.ServerConfig;
 import net.pocketbukkit.Main;
 import net.pocketbukkit.Unsupported;
-import net.pocketbukkit.bukkitbridge.entity.BukkitPlayer;
+import net.pocketbukkit.bukkit.bridge.entity.BukkitPlayer;
 import net.pocketbukkit.wrapper.LoggerWrapper;
 import org.blockserver.Server;
 import org.blockserver.net.protocol.pe.PeProtocolConst;
