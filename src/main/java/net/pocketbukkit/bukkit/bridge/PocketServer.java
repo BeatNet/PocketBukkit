@@ -4,6 +4,7 @@ import com.avaje.ebean.config.ServerConfig;
 import net.pocketbukkit.Main;
 import net.pocketbukkit.Unsupported;
 import net.pocketbukkit.bukkit.bridge.entity.BukkitPlayer;
+import net.pocketbukkit.bukkit.plugin.BukkitPluginLoader;
 import net.pocketbukkit.wrapper.LoggerWrapper;
 import org.blockserver.Server;
 import org.blockserver.net.protocol.pe.PeProtocolConst;
@@ -37,6 +38,7 @@ import org.bukkit.util.CachedServerIcon;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -49,9 +51,10 @@ import static net.pocketbukkit.Main.UNSUPPORTED_LEVEL_EMPTY_CALL;
 import static net.pocketbukkit.Main.UNSUPPORTED_LEVEL_INVALID_VALUE;
 import static net.pocketbukkit.Main.UNSUPPORTED_LEVEL_NULL;
 
-public class PocketServer implements org.bukkit.Server{
+public class PocketServer implements org.bukkit.Server, Runnable{
 	private Server server;
 	private LoggerWrapper logger;
+    private PluginManager mgr;
 	public PocketServer(Server server){
 		this.server = server;
 		logger = new LoggerWrapper(server.getLogger());
@@ -185,7 +188,7 @@ public class PocketServer implements org.bukkit.Server{
 	}
 	@Override
 	public PluginManager getPluginManager(){
-		return null;
+		return mgr;
 	}
 	@Override
 	public BukkitScheduler getScheduler(){
@@ -456,4 +459,17 @@ public class PocketServer implements org.bukkit.Server{
 	public Set<String> getListeningPluginChannels(){
 		return null;
 	}
+
+    @Override
+    public void run() {
+        net.pocketbukkit.PluginManager manager = new net.pocketbukkit.PluginManager(server, this);
+        manager.registerPluginLoader(new BukkitPluginLoader(manager));
+        try {
+            manager.loadPlugins(new File("plugins"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            server.start();
+        }
+    }
 }

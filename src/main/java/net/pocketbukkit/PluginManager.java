@@ -9,10 +9,12 @@ import java.util.HashMap;
 
 public class PluginManager{
 	private Server server;
+    private org.bukkit.Server bukkitServer;
 	private ArrayList<PluginLoader> loaders = new ArrayList<>();
 	private HashMap<String, PocketPlugin> pluginMap = new HashMap<>();
-	public PluginManager(Server server){
+	public PluginManager(Server server, org.bukkit.Server bukkitServer){
 		this.server = server;
+        this.bukkitServer = bukkitServer;
 	}
 	public void registerPluginLoader(PluginLoader loader){
 		loaders.add(loader);
@@ -40,6 +42,7 @@ public class PluginManager{
 		return changed;
 	}
 	public void loadPlugins(File dir) throws IOException{
+        server.getLogger().info("Loading Plugins...");
 		if(!dir.isDirectory()){
 			throw new IllegalArgumentException("File passed is not a directory");
 		}
@@ -53,7 +56,8 @@ public class PluginManager{
 					PocketPlugin plugin = loader.loadPlugin(file);
 					pluginMap.put(plugin.getName(), plugin);
 					break;
-				}
+				} else {
+                }
 			}
 		}
 	}
@@ -63,6 +67,7 @@ public class PluginManager{
 	public Server getServer(){
 		return server;
 	}
+    public org.bukkit.Server getBukkitServer(){ return bukkitServer; }
 	public HashMap<String, PocketPlugin> getPlugins(){
 		return pluginMap;
 	}

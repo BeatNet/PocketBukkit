@@ -1,10 +1,10 @@
 package net.pocketbukkit.bukkit.plugin;
 
 import net.pocketbukkit.PocketPlugin;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 
 public class BukkitPlugin implements PocketPlugin{
-	private JavaPlugin plugin;
+	private Plugin plugin;
 
 	@Override
 	public String getName(){

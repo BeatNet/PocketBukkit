@@ -49,9 +49,11 @@ public class Main{
 		}
         File moduleDir = new File("modules");
         File includeDir = new File("include");
+        File pluginsDir = new File("plugins");
 
         moduleDir.mkdirs();
         includeDir.mkdirs();
+        pluginsDir.mkdirs();
 
 		ServerBuilder builder = new ServerBuilder()
 				.setModulePath(moduleDir)
@@ -63,8 +65,7 @@ public class Main{
 				.setAddress(InetAddress.getByName("localhost"));
 		Server server = builder.build();
 		PocketServer impl = new PocketServer(server);
-		impl.getLogger().info("Hey there");
-		server.start();
+        impl.run();
 	}
 	public static boolean isThrowExOnUnsupported(int level){
 		return level <= levelToThrowExOnUnsupported;

@@ -148,12 +148,12 @@ public class BukkitPlayer implements org.bukkit.entity.Player{
 
 	@Override
 	public void sendRawMessage(String message){
-		// TODO: @jython234 update the version please, I don't know how to.
+        player.sendMessage(message);
 	}
 
 	@Override
 	public void kickPlayer(String message){
-		// TODO: @jython234 update the version please, I don't know how to.
+        player.kick(message);
 	}
 
 	@Override
