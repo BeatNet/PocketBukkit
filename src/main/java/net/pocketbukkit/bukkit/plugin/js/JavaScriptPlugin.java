@@ -1,7 +1,6 @@
 package net.pocketbukkit.bukkit.plugin.js;
 
 import com.avaje.ebean.EbeanServer;
-import net.pocketbukkit.bukkit.plugin.BukkitPlugin;
 import net.pocketbukkit.wrapper.LoggerWrapper;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
@@ -12,7 +11,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginLoader;
 
-import javax.script.Invocable;
 import javax.script.ScriptException;
 import java.io.File;
 import java.io.InputStream;
@@ -25,10 +23,10 @@ import java.util.logging.Logger;
 public class JavaScriptPlugin implements Plugin{
     private JavaScriptFile script;
     private PluginDescriptionFile descriptionFile;
-    private net.pocketbukkit.PluginLoader loader;
+    private net.pocketbukkit.plugin.PluginLoader loader;
     private LoggerWrapper logger;
 
-    public JavaScriptPlugin(JavaScriptFile script, PluginDescriptionFile desc, net.pocketbukkit.PluginLoader loader, LoggerWrapper logger){
+    public JavaScriptPlugin(JavaScriptFile script, PluginDescriptionFile desc, net.pocketbukkit.plugin.PluginLoader loader, LoggerWrapper logger){
         this.script = script;
         this.descriptionFile = desc;
         this.loader = loader;

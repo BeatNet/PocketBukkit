@@ -1,5 +1,6 @@
-package net.pocketbukkit;
+package net.pocketbukkit.plugin;
 
+import net.pocketbukkit.plugin.PocketPlugin;
 import org.bukkit.Server;
 
 import java.io.File;

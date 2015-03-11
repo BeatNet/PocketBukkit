@@ -1,8 +1,8 @@
 package net.pocketbukkit.bukkit.plugin;
 
-import net.pocketbukkit.PluginLoader;
-import net.pocketbukkit.PluginManager;
-import net.pocketbukkit.PocketPlugin;
+import net.pocketbukkit.plugin.PluginLoader;
+import net.pocketbukkit.plugin.PluginManager;
+import net.pocketbukkit.plugin.PocketPlugin;
 import net.pocketbukkit.bukkit.bridge.PocketServer;
 import net.pocketbukkit.bukkit.plugin.js.JavaScriptFile;
 import net.pocketbukkit.bukkit.plugin.js.JavaScriptPlugin;

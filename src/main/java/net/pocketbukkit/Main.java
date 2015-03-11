@@ -1,6 +1,7 @@
 package net.pocketbukkit;
 
 import net.pocketbukkit.bukkit.bridge.PocketServer;
+import net.pocketbukkit.bukkit.plugin.BukkitPluginLoader;
 import org.blockserver.Server;
 import org.blockserver.ServerBuilder;
 import org.blockserver.player.DummyPlayerDatabase;
@@ -13,6 +14,8 @@ import java.net.UnknownHostException;
 public class Main{
 	public final static String PB_VERSION = "v1.0-SNAPSHOT - (Baby Villager)";
 	public final static String BUKKIT_VERSION = "1.8-R0.1-SNAPSHOT";
+
+    public static BlockServerAdapter ADAPTER;
 
 	/**
 	 * This is the unsupported level when it would lead to
@@ -41,6 +44,7 @@ public class Main{
 	private static int levelToThrowExOnUnsupported = UNSUPPORTED_LEVEL_NULL;
 
 	public static void main(String[] args) throws UnknownHostException{
+        System.out.println("PocketBukkit, "+PB_VERSION);
 		for(int i = 0; i < args.length; i++){
 			String arg = args[i];
 			if(arg.equalsIgnoreCase("unsupportedEx")){
@@ -63,9 +67,13 @@ public class Main{
 				.setIncludePath(includeDir)
 				.setPort(19132)
 				.setAddress(InetAddress.getByName("localhost"));
+        System.out.println("Building server...");
 		Server server = builder.build();
+
 		PocketServer impl = new PocketServer(server);
-        impl.run();
+        ADAPTER = new BlockServerAdapter(impl, server);
+        ADAPTER.addPluginLoader(new BukkitPluginLoader(ADAPTER.getPluginManager()));
+        ADAPTER.run();
 	}
 	public static boolean isThrowExOnUnsupported(int level){
 		return level <= levelToThrowExOnUnsupported;

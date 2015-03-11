@@ -51,7 +51,7 @@ import static net.pocketbukkit.Main.UNSUPPORTED_LEVEL_EMPTY_CALL;
 import static net.pocketbukkit.Main.UNSUPPORTED_LEVEL_INVALID_VALUE;
 import static net.pocketbukkit.Main.UNSUPPORTED_LEVEL_NULL;
 
-public class PocketServer implements org.bukkit.Server, Runnable{
+public class PocketServer implements org.bukkit.Server{
 	private Server server;
 	private LoggerWrapper logger;
     private PluginManager mgr;
@@ -459,17 +459,4 @@ public class PocketServer implements org.bukkit.Server, Runnable{
 	public Set<String> getListeningPluginChannels(){
 		return null;
 	}
-
-    @Override
-    public void run() {
-        net.pocketbukkit.PluginManager manager = new net.pocketbukkit.PluginManager(server, this);
-        manager.registerPluginLoader(new BukkitPluginLoader(manager));
-        try {
-            manager.loadPlugins(new File("plugins"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            server.start();
-        }
-    }
 }
