@@ -21,6 +21,7 @@ public class BlockServerAdapter implements Runnable{
     private org.bukkit.Server bukkitServer;
 
     private PluginManager pluginMgr;
+    private PocketBukkitAPI api;
 
     public BlockServerAdapter(org.bukkit.Server bukkitServer, Server blockserver){
         this.bukkitServer = bukkitServer;
@@ -38,14 +39,18 @@ public class BlockServerAdapter implements Runnable{
             logger.info("Adding "+loader.getClass().getCanonicalName());
             pluginMgr.registerPluginLoader(loader);
         }
+        /*
         try {
             pluginMgr.loadPlugins(new File("plugins"));
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            logger.info("Starting server...");
-            server.start();
         }
+        */
+        api = new PocketBukkitAPI(server, this);
+        server.setAPI(api);
+
+        logger.info("Starting server...");
+        server.start();
     }
 
     /**

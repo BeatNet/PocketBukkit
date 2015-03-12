@@ -1,14 +1,17 @@
 package net.pocketbukkit.bukkit.plugin;
 
 import net.pocketbukkit.plugin.PocketPlugin;
+import org.blockserver.api.Event;
 import org.bukkit.plugin.Plugin;
 
-public class BukkitPlugin implements PocketPlugin{
+public abstract class BukkitPlugin implements PocketPlugin{
 	private Plugin plugin;
 
 	@Override
 	public String getName(){
-		// TODO
-		return null;
+		return plugin.getName();
 	}
+
+    public abstract boolean handleEvent(Event evt);
+
 }

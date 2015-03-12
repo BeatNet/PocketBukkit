@@ -1,7 +1,9 @@
 package net.pocketbukkit.bukkit.plugin.js;
 
 import com.avaje.ebean.EbeanServer;
+import net.pocketbukkit.bukkit.plugin.BukkitPlugin;
 import net.pocketbukkit.wrapper.LoggerWrapper;
+import org.blockserver.api.Event;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,17 +16,19 @@ import org.bukkit.plugin.PluginLoader;
 import javax.script.ScriptException;
 import java.io.File;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
 /**
  * Created by atzeise on 3/9/15.
  */
-public class JavaScriptPlugin implements Plugin{
+public class JavaScriptPlugin extends BukkitPlugin implements Plugin{
     private JavaScriptFile script;
     private PluginDescriptionFile descriptionFile;
     private net.pocketbukkit.plugin.PluginLoader loader;
     private LoggerWrapper logger;
+    private HashMap<Class, String> eventHandlers = new HashMap<Class, String>();
 
     public JavaScriptPlugin(JavaScriptFile script, PluginDescriptionFile desc, net.pocketbukkit.plugin.PluginLoader loader, LoggerWrapper logger){
         this.script = script;
@@ -126,6 +130,10 @@ public class JavaScriptPlugin implements Plugin{
         }
     }
 
+    public void registerEvent(String methodName, Class evtClazz){
+        eventHandlers.put(evtClazz, methodName);
+    }
+
     @Override
     public boolean isNaggable() {
         return false;
@@ -154,6 +162,20 @@ public class JavaScriptPlugin implements Plugin{
     @Override
     public String getName() {
         return descriptionFile.getName();
+    }
+
+    @Override
+    public boolean handleEvent(Event evt) {
+        if(eventHandlers.containsKey(evt.getClass())) {
+            try {
+                return (boolean) script.callFunction(eventHandlers.get(evt.getClass()), evt);
+            } catch (ScriptException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
     }
 
     @Override

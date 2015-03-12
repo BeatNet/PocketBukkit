@@ -61,7 +61,7 @@ public class BukkitPluginLoader implements PluginLoader{
             try {
                 PluginDescriptionFile desc = getJavaScriptDescription(file);
                 removeCache(file);
-                initJavaScriptPlugin(file, desc);
+                return initJavaScriptPlugin(file, desc);
             } catch (ScriptException e) {
                 e.printStackTrace();
             }
@@ -73,7 +73,7 @@ public class BukkitPluginLoader implements PluginLoader{
 		// TODO
 	}
 
-    private void initJavaScriptPlugin(File script, PluginDescriptionFile desc) throws FileNotFoundException {
+    private JavaScriptPlugin initJavaScriptPlugin(File script, PluginDescriptionFile desc) throws FileNotFoundException {
         JavaScriptFile javaScriptFile = null;
         try {
             javaScriptFile = new JavaScriptFile(script, new ScriptEngineManager().getEngineByName("nashorn"));
@@ -87,11 +87,13 @@ public class BukkitPluginLoader implements PluginLoader{
             server.getLogger().info("Enabling JavaScriptPlugin "+desc.getName()+", version "+desc.getVersion()+".");
             jsPlugin.onLoad();
             jsPlugin.onEnable();
+            return jsPlugin;
 
         } catch (ScriptException e) {
             server.getLogger().severe("Failed to load JavaScriptPlugin "+desc.getName()+": ScriptException at line "+e.getLineNumber()+", column "+e.getColumnNumber());
             e.printStackTrace();
         }
+        return null;
     }
 
 	public PluginDescriptionFile getJavaDescription(JarFile jarFile)

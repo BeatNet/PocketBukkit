@@ -6,6 +6,7 @@ import org.blockserver.Server;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class PluginManager{
@@ -50,19 +51,23 @@ public class PluginManager{
 			throw new IllegalArgumentException("File passed is not a directory");
 		}
 		File[] files = dir.listFiles();
+        System.out.println(Arrays.toString(files));
 		if(files == null){
 			throw new IOException("Failed to list files in passed File");
 		}
 		for(File file: files){
-			for(PluginLoader loader: loaders){
-				if(loader.acceptsPlugin(file)){
-					PocketPlugin plugin = loader.loadPlugin(file);
-					pluginMap.put(plugin.getName(), plugin);
-					break;
-				} else {
+            System.out.println("Loop: " + file.getName());
+			for(PluginLoader loader: loaders) {
+                if (loader.acceptsPlugin(file)) {
+                    PocketPlugin plugin = loader.loadPlugin(file);
+                    pluginMap.put(plugin.getName(), plugin);
+                    break;
+                } else {
+                    adapter.getLogger().warning("Plugin rejected: " + file.getName());
                 }
-			}
+            }
 		}
+        System.out.println("load complete.");
         adapter.getLogger().info("Load complete.");
 	}
 	public ArrayList<PluginLoader> getPluginLoaders(){
